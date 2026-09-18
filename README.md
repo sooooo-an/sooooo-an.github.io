@@ -94,13 +94,16 @@ GitHub 저장소 설정에서 **Settings → Pages → Build and deployment → 
 GitHub Actions가 OpenAI API를 사용해 `src/content-en/**` 에 영어 번역본을
 자동으로 생성해 커밋합니다.
 
-- **신규 글만 번역**: `src/content-en/<category>/<slug>.mdx` 파일이 이미
-  존재하면 다시 번역하지 않습니다. 한국어 원문을 나중에 수정해도 기존 영문
-  번역본은 그대로 유지됩니다(직접 다듬은 영문 버전을 덮어쓰지 않기 위함).
+- **변경 감지 기반 재번역**: 한국어 원문의 해시(sha256)를 영문 파일의
+  frontmatter `sourceHash` 에 기록해두고, 다음 실행 시 원문 해시와 비교합니다.
+  `content-en` 파일이 없거나 원문이 바뀌어 해시가 달라지면 다시 번역합니다.
+  즉 신규 글은 물론, 기존 글의 한국어 원문을 나중에 수정해도 자동으로
+  재번역됩니다.
 - **동작 시점**: `main` 브랜치에 `src/content/**/*.mdx` 변경이 포함된
   push가 있을 때 `.github/workflows/translate.yml` 워크플로가 실행되어
-  신규 파일을 번역하고, 결과를 `github-actions[bot]` 명의로 자동 커밋·푸시합니다.
-  이 커밋이 다시 `deploy.yml` 을 트리거해 번역이 반영된 최신 상태로 배포됩니다.
+  변경되거나 신규인 파일을 번역하고, 결과를 `github-actions[bot]` 명의로
+  자동 커밋·푸시합니다. 이 커밋이 다시 `deploy.yml` 을 트리거해 번역이
+  반영된 최신 상태로 배포됩니다.
 
 ### 필요한 설정
 
@@ -117,8 +120,10 @@ echo "OPENAI_API_KEY=sk-..." > .env.local
 npm run translate
 ```
 
-### 영문 번역을 다시 하고 싶다면
+### 영문 번역을 강제로 다시 하고 싶다면
 
-해당 파일 `src/content-en/<category>/<slug>.mdx` 를 삭제한 뒤 다시
-push하거나(또는 로컬에서 `npm run translate` 재실행) 하면, 신규 글로
-인식되어 다시 번역됩니다.
+한국어 원문을 수정하면 자동으로 재번역 대상이 되므로 보통은 별도 조치가
+필요 없습니다. 원문을 건드리지 않고도 강제로 재번역하고 싶다면, 해당
+`src/content-en/<category>/<slug>.mdx` 파일의 frontmatter에서 `sourceHash`
+줄을 지우거나 파일 자체를 삭제한 뒤 다시 push(또는 로컬에서
+`npm run translate` 재실행)하면 됩니다.

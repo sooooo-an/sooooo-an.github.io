@@ -2,13 +2,15 @@
 /**
  * scripts/translate.mjs
  *
- * 신규 한국어 콘텐츠(src/content/**)를 OpenAI API로 영어로 자동 번역해
+ * 한국어 콘텐츠(src/content/**)를 OpenAI API로 영어로 자동 번역해
  * src/content-en/** 에 미러링하는 스크립트.
  *
- * 정책: "신규 글만 번역"
- *   - src/content/<category>/<slug>.mdx 가 있는데 src/content-en/<category>/<slug>.mdx 가
- *     존재하지 않는 경우에만 번역 대상. 이미 content-en에 같은 slug 파일이 있으면
- *     한국어 원문이 나중에 수정돼도 다시 번역하지 않음(파일 존재 여부만으로 판단).
+ * 정책: "변경 감지 기반 재번역"
+ *   - src/content/<category>/<slug>.mdx 의 내용을 해시(sha256)로 계산해서
+ *     content-en 쪽 frontmatter의 sourceHash 와 비교한다.
+ *   - content-en 파일이 없거나, sourceHash 가 현재 한국어 원문 해시와 다르면 번역 대상.
+ *   - 즉 한국어 원문을 나중에 수정하면 그 글도 다시 번역된다(신규 글도 당연히 포함).
+ *   - 번역 결과 frontmatter에는 sourceHash 를 기록해서 다음 실행 시 변경 여부를 판단한다.
  *
  * 사용법:
  *   로컬 실행: 프로젝트 루트에 .env.local 파일을 만들고 OPENAI_API_KEY=sk-... 작성 후
@@ -25,6 +27,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 
@@ -70,6 +73,10 @@ Rules:
 - Respond ONLY with a JSON object of the exact shape:
   {"data": { ...translated frontmatter... }, "content": "...translated MDX body..."}`;
 
+function hashSource(raw) {
+  return crypto.createHash("sha256").update(raw, "utf-8").digest("hex");
+}
+
 function findMdxFiles(dir) {
   if (!fs.existsSync(dir)) return [];
   return fs
@@ -87,10 +94,19 @@ function collectTranslationTargets() {
       const slug = file.replace(/\.mdx$/, "");
       const srcPath = path.join(srcCategoryDir, file);
       const enPath = path.join(CONTENT_EN_DIR, category, file);
+
+      const srcRaw = fs.readFileSync(srcPath, "utf-8");
+      const currentHash = hashSource(srcRaw);
+
       if (fs.existsSync(enPath)) {
-        continue; // 이미 번역본 존재 -> skip (재번역 안 함)
+        const enRaw = fs.readFileSync(enPath, "utf-8");
+        const { data: enData } = matter(enRaw);
+        if (enData.sourceHash === currentHash) {
+          continue; // 원문 변경 없음 -> skip
+        }
       }
-      targets.push({ category, slug, srcPath, enPath });
+
+      targets.push({ category, slug, srcPath, enPath, srcRaw, currentHash });
     }
   }
   return targets;
@@ -142,13 +158,14 @@ async function translateOne({ data, content }) {
   return parsed;
 }
 
-function enforceStructuralFields(translatedData, originalData) {
+function finalizeData(translatedData, originalData, sourceHash) {
   const merged = { ...translatedData };
   for (const key of STRUCTURAL_FIELDS) {
     if (Object.prototype.hasOwnProperty.call(originalData, key)) {
       merged[key] = originalData[key];
     }
   }
+  merged.sourceHash = sourceHash;
   return merged;
 }
 
@@ -165,7 +182,7 @@ async function main() {
   const targets = collectTranslationTargets();
 
   if (targets.length === 0) {
-    console.log("[translate] 번역할 신규 콘텐츠 없음");
+    console.log("[translate] 번역할 변경/신규 콘텐츠 없음");
     process.exit(0);
   }
 
@@ -179,11 +196,14 @@ async function main() {
 
   for (const target of targets) {
     try {
-      const raw = fs.readFileSync(target.srcPath, "utf-8");
-      const { data, content } = matter(raw);
+      const { data, content } = matter(target.srcRaw);
 
       const result = await translateOne({ data, content });
-      const translatedData = enforceStructuralFields(result.data ?? {}, data);
+      const translatedData = finalizeData(
+        result.data ?? {},
+        data,
+        target.currentHash
+      );
       const translatedContent = result.content ?? content;
 
       const outString = matter.stringify(translatedContent, translatedData);
