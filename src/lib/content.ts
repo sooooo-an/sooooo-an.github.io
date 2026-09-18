@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { createSlugger } from './slugify';
 import { categories, type CategorySlug } from './categories';
 import type { Locale } from './i18n/dictionary';
+import { getContentBadge, type ContentBadge } from './git-dates';
 
 const SRC_DIR = path.join(process.cwd(), 'src');
 
@@ -31,6 +32,7 @@ export interface PostMeta {
   featured: boolean;
   draft: boolean;
   readingTime: number;
+  badge: ContentBadge;
 }
 
 export interface Post extends PostMeta {
@@ -48,6 +50,7 @@ export interface ProjectMeta {
   proves: string[];
   featured: boolean;
   order: number;
+  badge: ContentBadge;
 }
 
 export interface Project extends ProjectMeta {
@@ -103,6 +106,7 @@ export function getAllPosts(locale: Locale = 'ko'): Post[] {
       const { data, content } = matter(raw);
       const draft = Boolean(data.draft);
       if (draft && isProd()) continue;
+      const koSourcePath = path.join(contentDir('ko'), category.slug, file);
       posts.push({
         slug,
         category: category.slug,
@@ -113,6 +117,7 @@ export function getAllPosts(locale: Locale = 'ko'): Post[] {
         featured: Boolean(data.featured),
         draft,
         readingTime: estimateReadingTime(content),
+        badge: getContentBadge(koSourcePath),
         content,
         toc: extractToc(content),
       });
@@ -149,6 +154,7 @@ export function getAllProjects(locale: Locale = 'ko'): Project[] {
     const fullPath = path.join(dir, file);
     const raw = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(raw);
+    const koSourcePath = path.join(projectsDir('ko'), file);
     return {
       slug,
       title: data.title,
@@ -159,6 +165,7 @@ export function getAllProjects(locale: Locale = 'ko'): Project[] {
       proves: data.proves ?? [],
       featured: Boolean(data.featured),
       order: typeof data.order === 'number' ? data.order : 999,
+      badge: getContentBadge(koSourcePath),
       content,
     };
   });

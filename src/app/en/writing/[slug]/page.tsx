@@ -12,6 +12,7 @@ import { blogPostingSchema } from '@/lib/jsonld';
 import { renderMdx } from '@/lib/mdx';
 import Toc from '@/components/Toc';
 import Giscus from '@/components/Giscus';
+import ContentBadge from '@/components/ContentBadge';
 
 export const dynamic = 'force-static';
 
@@ -72,7 +73,10 @@ export default async function PostDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <header className="post-header">
-        <h1 className="post-title">{post.title}</h1>
+        <h1 className="post-title">
+          {post.title}
+          <ContentBadge badge={post.badge} locale="en" />
+        </h1>
         <div className="post-meta">
           <span>{post.date}</span>
           <span>{dict.categories[post.category]}</span>

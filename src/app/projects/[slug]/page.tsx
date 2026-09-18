@@ -5,6 +5,7 @@ import { renderMdx } from '@/lib/mdx';
 import { alternatesFor, siteConfig } from '@/lib/site';
 import { t } from '@/lib/i18n/dictionary';
 import { creativeWorkSchema } from '@/lib/jsonld';
+import ContentBadge from '@/components/ContentBadge';
 
 export const dynamic = 'force-static';
 
@@ -62,7 +63,10 @@ export default async function ProjectDetailPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <header className="post-header">
-        <h1 className="post-title">{project.title}</h1>
+        <h1 className="post-title">
+          {project.title}
+          <ContentBadge badge={project.badge} locale="ko" />
+        </h1>
         <p style={{ color: 'var(--color-meta)', marginBottom: 16 }}>
           {project.summary}
         </p>

@@ -46,6 +46,7 @@ interface Dictionary {
   };
   categories: { tech: string; review: string; thoughts: string };
   provesLabel: string;
+  badges: { new: string; updated: string };
   notFound: { title: string; desc: string; back: string };
 }
 
@@ -115,6 +116,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     },
     categories: { tech: '기술', review: '서평', thoughts: '개인생각' },
     provesLabel: '증명하는 역량',
+    badges: { new: 'New', updated: '수정' },
     notFound: {
       title: '페이지를 찾을 수 없습니다',
       desc: '요청하신 페이지가 존재하지 않거나 이동되었습니다.',
@@ -186,6 +188,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     },
     categories: { tech: 'Tech', review: 'Book Review', thoughts: 'Thoughts' },
     provesLabel: 'Skills proven',
+    badges: { new: 'New', updated: 'Updated' },
     notFound: {
       title: 'Page not found',
       desc: 'The page you requested does not exist or has been moved.',

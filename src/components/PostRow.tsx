@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { PostMeta } from '@/lib/content';
 import { t, localePath, type Locale } from '@/lib/i18n/dictionary';
+import ContentBadge from '@/components/ContentBadge';
 
 export default function PostRow({
   post,
@@ -20,7 +21,10 @@ export default function PostRow({
         className="numbered-body"
         style={{ display: 'block' }}
       >
-        <p className="numbered-title">{post.title}</p>
+        <p className="numbered-title">
+          {post.title}
+          <ContentBadge badge={post.badge} locale={locale} />
+        </p>
         <p className="numbered-meta">
           {post.date} · {dict.categories[post.category]}
         </p>
