@@ -1,0 +1,48 @@
+name: Auto-translate new content
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/**/*.mdx'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-translate
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Translate new content
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node scripts/translate.mjs
+
+      - name: Commit translated content
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/content-en
+          if git diff --cached --quiet; then
+            echo "No new translations to commit."
+          else
+            git commit -m "chore: 신규 콘텐츠 영문 번역 자동 추가"
+            git push
+          fi

@@ -87,3 +87,38 @@ GitHub 저장소 설정에서 **Settings → Pages → Build and deployment → 
 **GitHub Actions**로 지정하면, `main` 브랜치에 push할 때마다
 `.github/workflows/deploy.yml` 워크플로우가 실행되어 `npm run build` 결과물
 (`out/`)을 GitHub Pages에 자동 배포합니다.
+
+## 자동 번역 (한글 → 영어)
+
+`src/content/**/*.mdx` 에 새 글이나 새 프로젝트 케이스 스터디를 추가하면,
+GitHub Actions가 OpenAI API를 사용해 `src/content-en/**` 에 영어 번역본을
+자동으로 생성해 커밋합니다.
+
+- **신규 글만 번역**: `src/content-en/<category>/<slug>.mdx` 파일이 이미
+  존재하면 다시 번역하지 않습니다. 한국어 원문을 나중에 수정해도 기존 영문
+  번역본은 그대로 유지됩니다(직접 다듬은 영문 버전을 덮어쓰지 않기 위함).
+- **동작 시점**: `main` 브랜치에 `src/content/**/*.mdx` 변경이 포함된
+  push가 있을 때 `.github/workflows/translate.yml` 워크플로가 실행되어
+  신규 파일을 번역하고, 결과를 `github-actions[bot]` 명의로 자동 커밋·푸시합니다.
+  이 커밋이 다시 `deploy.yml` 을 트리거해 번역이 반영된 최신 상태로 배포됩니다.
+
+### 필요한 설정
+
+레포 **Settings → Secrets and variables → Actions → New repository secret**
+에서 `OPENAI_API_KEY` 를 등록해야 워크플로가 정상 동작합니다. (키가 없으면
+번역 스텝이 즉시 에러로 종료되고, 사이트 배포 자체에는 영향을 주지 않습니다.)
+
+### 로컬에서 직접 번역 테스트하기
+
+```bash
+# 프로젝트 루트에 .env.local 파일 생성 (.env* 는 .gitignore 에 포함되어 커밋되지 않음)
+echo "OPENAI_API_KEY=sk-..." > .env.local
+
+npm run translate
+```
+
+### 영문 번역을 다시 하고 싶다면
+
+해당 파일 `src/content-en/<category>/<slug>.mdx` 를 삭제한 뒤 다시
+push하거나(또는 로컬에서 `npm run translate` 재실행) 하면, 신규 글로
+인식되어 다시 번역됩니다.
