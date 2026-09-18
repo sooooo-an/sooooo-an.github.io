@@ -1,10 +1,18 @@
 import type { TocItem } from '@/lib/content';
+import { t, type Locale } from '@/lib/i18n/dictionary';
 
-export default function Toc({ items }: { items: TocItem[] }) {
+export default function Toc({
+  items,
+  locale = 'ko',
+}: {
+  items: TocItem[];
+  locale?: Locale;
+}) {
+  const dict = t(locale);
   if (items.length === 0) return null;
   return (
-    <nav className="toc" aria-label="목차">
-      <p className="toc-title">목차</p>
+    <nav className="toc" aria-label={dict.postDetail.toc}>
+      <p className="toc-title">{dict.postDetail.toc}</p>
       <ul className="toc-list">
         {items.map((item) => (
           <li key={item.id} className={`toc-depth-${item.depth}`}>

@@ -16,7 +16,7 @@ import Giscus from '@/components/Giscus';
 export const dynamic = 'force-static';
 
 export function generateStaticParams() {
-  return getAllPosts('ko').map((p) => ({ slug: p.slug }));
+  return getAllPosts('en').map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -25,7 +25,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug, 'ko');
+  const post = getPostBySlug(slug, 'en');
   if (!post) return {};
   return {
     title: post.title,
@@ -33,15 +33,15 @@ export async function generateMetadata({
     alternates: alternatesFor(
       `/writing/${slug}/`,
       `/en/writing/${slug}/`,
-      'ko'
+      'en'
     ),
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
-      locale: 'ko_KR',
-      alternateLocale: 'en_US',
+      locale: 'en_US',
+      alternateLocale: 'ko_KR',
     },
   };
 }
@@ -52,21 +52,21 @@ export default async function PostDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug, 'ko');
+  const post = getPostBySlug(slug, 'en');
   if (!post) notFound();
 
-  const dict = t('ko');
-  const { prev, next } = getAdjacentPosts(slug, 'ko');
+  const dict = t('en');
+  const { prev, next } = getAdjacentPosts(slug, 'en');
   const content = await renderMdx(post.content);
   const schema = blogPostingSchema({
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    url: `${siteConfig.url}/writing/${slug}/`,
+    url: `${siteConfig.url}/en/writing/${slug}/`,
   });
 
   return (
-    <div className="content-narrow" data-pagefind-filter="lang:ko">
+    <div className="content-narrow" data-pagefind-filter="lang:en">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
@@ -80,7 +80,7 @@ export default async function PostDetailPage({
         </div>
       </header>
 
-      <Toc items={post.toc} locale="ko" />
+      <Toc items={post.toc} locale="en" />
 
       <article className="prose" data-pagefind-body>
         {content}
@@ -88,7 +88,7 @@ export default async function PostDetailPage({
 
       <nav className="adjacent-posts">
         {prev ? (
-          <Link href={`/writing/${prev.slug}/`} className="adjacent-link prev">
+          <Link href={`/en/writing/${prev.slug}/`} className="adjacent-link prev">
             <p className="adjacent-label">{dict.postDetail.prev}</p>
             <p className="adjacent-title">{prev.title}</p>
           </Link>
@@ -96,7 +96,7 @@ export default async function PostDetailPage({
           <span />
         )}
         {next ? (
-          <Link href={`/writing/${next.slug}/`} className="adjacent-link next">
+          <Link href={`/en/writing/${next.slug}/`} className="adjacent-link next">
             <p className="adjacent-label">{dict.postDetail.next}</p>
             <p className="adjacent-title">{next.title}</p>
           </Link>
@@ -105,7 +105,7 @@ export default async function PostDetailPage({
         )}
       </nav>
 
-      <Giscus locale="ko" />
+      <Giscus locale="en" />
     </div>
   );
 }

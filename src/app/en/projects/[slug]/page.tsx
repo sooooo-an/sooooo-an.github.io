@@ -9,7 +9,7 @@ import { creativeWorkSchema } from '@/lib/jsonld';
 export const dynamic = 'force-static';
 
 export function generateStaticParams() {
-  return getAllProjects('ko').map((p) => ({ slug: p.slug }));
+  return getAllProjects('en').map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -18,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProjectBySlug(slug, 'ko');
+  const project = getProjectBySlug(slug, 'en');
   if (!project) return {};
   return {
     title: project.title,
@@ -26,14 +26,14 @@ export async function generateMetadata({
     alternates: alternatesFor(
       `/projects/${slug}/`,
       `/en/projects/${slug}/`,
-      'ko'
+      'en'
     ),
     openGraph: {
       title: project.title,
       description: project.summary,
       type: 'article',
-      locale: 'ko_KR',
-      alternateLocale: 'en_US',
+      locale: 'en_US',
+      alternateLocale: 'ko_KR',
     },
   };
 }
@@ -44,19 +44,19 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug, 'ko');
+  const project = getProjectBySlug(slug, 'en');
   if (!project) notFound();
 
-  const dict = t('ko');
+  const dict = t('en');
   const content = await renderMdx(project.content);
   const schema = creativeWorkSchema({
     headline: project.title,
     description: project.summary,
-    url: `${siteConfig.url}/projects/${slug}/`,
+    url: `${siteConfig.url}/en/projects/${slug}/`,
   });
 
   return (
-    <div className="content-narrow" data-pagefind-filter="lang:ko">
+    <div className="content-narrow" data-pagefind-filter="lang:en">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

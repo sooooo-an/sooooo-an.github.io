@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { t, type Locale } from '@/lib/i18n/dictionary';
 
 interface PagefindResult {
   id: string;
@@ -11,17 +12,25 @@ interface PagefindResult {
   }>;
 }
 
-interface PagefindModule {
-  search: (query: string) => Promise<{ results: PagefindResult[] }>;
+interface PagefindSearchOptions {
+  filters?: Record<string, string[]>;
 }
 
-export default function Search() {
+interface PagefindModule {
+  search: (
+    query: string,
+    options?: PagefindSearchOptions
+  ) => Promise<{ results: PagefindResult[] }>;
+}
+
+export default function Search({ locale = 'ko' }: { locale?: Locale }) {
   const [query, setQuery] = useState('');
   const [items, setItems] = useState<
     { url: string; title: string; excerpt: string }[]
   >([]);
   const [unavailable, setUnavailable] = useState(false);
   const pagefindRef = useRef<PagefindModule | null>(null);
+  const dict = t(locale);
 
   useEffect(() => {
     let cancelled = false;
@@ -52,7 +61,9 @@ export default function Search() {
         setItems([]);
         return;
       }
-      const { results } = await pagefindRef.current.search(query);
+      const { results } = await pagefindRef.current.search(query, {
+        filters: { lang: [locale] },
+      });
       const top = await Promise.all(
         results.slice(0, 8).map(async (r) => {
           const data = await r.data();
@@ -70,7 +81,7 @@ export default function Search() {
     return () => {
       cancelled = true;
     };
-  }, [query]);
+  }, [query, locale]);
 
   if (unavailable) return null;
 
@@ -79,7 +90,7 @@ export default function Search() {
       <input
         type="search"
         className="search-input"
-        placeholder="글 검색..."
+        placeholder={dict.writingPage.searchPlaceholder}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

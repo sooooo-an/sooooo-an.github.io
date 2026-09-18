@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { t, type Locale } from '@/lib/i18n/dictionary';
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ locale = 'ko' }: { locale?: Locale }) {
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
+  const dict = t(locale);
 
   useEffect(() => {
     const current = document.documentElement.getAttribute('data-theme');
@@ -25,7 +27,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label="다크모드 전환"
+      aria-label={dict.themeToggleLabel}
       className="theme-toggle"
     >
       {theme === 'dark' ? (

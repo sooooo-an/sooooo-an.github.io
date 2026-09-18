@@ -3,8 +3,9 @@
 import GiscusWidget from '@giscus/react';
 import { useEffect, useState } from 'react';
 import { siteConfig } from '@/lib/site';
+import type { Locale } from '@/lib/i18n/dictionary';
 
-export default function Giscus() {
+export default function Giscus({ locale = 'ko' }: { locale?: Locale }) {
   const { repo, repoId, category, categoryId } = siteConfig.giscus;
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
@@ -37,7 +38,7 @@ export default function Giscus() {
       emitMetadata="0"
       inputPosition="bottom"
       theme={theme === 'dark' ? 'dark' : 'light'}
-      lang="ko"
+      lang={locale === 'en' ? 'en' : 'ko'}
     />
   );
 }
