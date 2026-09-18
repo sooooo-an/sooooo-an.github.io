@@ -13,8 +13,8 @@ export const siteConfig = {
     categoryId: 'DIC_kwDOUfwFzs4DF3F4',
   },
   analytics: {
-    umamiWebsiteId: '',
-    umamiSrc: '',
+    umamiWebsiteId: '3869e0fd-094d-46e1-bf78-35f9660621b0',
+    umamiSrc: 'https://cloud.umami.is/script.js',
   },
 } as const;
 
