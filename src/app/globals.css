@@ -5,7 +5,7 @@
   --color-text: #24292f;
   --color-meta: #6b7280;
   --color-border: #e5e7eb;
-  --color-accent: #426cb4;
+  --color-accent: #1F6F50;
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
     sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, monospace;
@@ -17,7 +17,7 @@
     --color-text: #d7dae0;
     --color-meta: #8b929e;
     --color-border: #2c3038;
-    --color-accent: #7aa2e3;
+    --color-accent: #4FAE84;
   }
 }
 
@@ -26,7 +26,7 @@
   --color-text: #d7dae0;
   --color-meta: #8b929e;
   --color-border: #2c3038;
-  --color-accent: #7aa2e3;
+  --color-accent: #4FAE84;
 }
 
 * {

@@ -34,7 +34,7 @@ export default async function OgImage({
           background: '#ffffff',
         }}
       >
-        <div style={{ fontSize: 20, color: '#426cb4', letterSpacing: 2 }}>
+        <div style={{ fontSize: 20, color: '#1F6F50', letterSpacing: 2 }}>
           PROJECT
         </div>
         <div
