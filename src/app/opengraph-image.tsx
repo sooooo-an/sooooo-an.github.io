@@ -27,7 +27,7 @@ export default async function OgImage() {
         <div style={{ fontSize: 32, color: '#6b7280', marginTop: 16 }}>
           {siteConfig.role}
         </div>
-        <div style={{ fontSize: 24, color: '#1F6F50', marginTop: 40 }}>
+        <div style={{ fontSize: 24, color: '#6B3FA0', marginTop: 40 }}>
           {siteConfig.description}
         </div>
       </div>

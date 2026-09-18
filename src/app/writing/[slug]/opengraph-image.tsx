@@ -35,7 +35,7 @@ export default async function OgImage({
           background: '#ffffff',
         }}
       >
-        <div style={{ fontSize: 20, color: '#1F6F50', letterSpacing: 2 }}>
+        <div style={{ fontSize: 20, color: '#6B3FA0', letterSpacing: 2 }}>
           {meta}
         </div>
         <div
