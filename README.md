@@ -91,7 +91,7 @@ GitHub 저장소 설정에서 **Settings → Pages → Build and deployment → 
 ## 자동 번역 (한글 → 영어)
 
 `src/content/**/*.mdx` 에 새 글이나 새 프로젝트 케이스 스터디를 추가하면,
-GitHub Actions가 OpenAI API를 사용해 `src/content-en/**` 에 영어 번역본을
+GitHub Actions가 Google Gemini API를 사용해 `src/content-en/**` 에 영어 번역본을
 자동으로 생성해 커밋합니다.
 
 - **변경 감지 기반 재번역**: 한국어 원문의 해시(sha256)를 영문 파일의
@@ -108,14 +108,15 @@ GitHub Actions가 OpenAI API를 사용해 `src/content-en/**` 에 영어 번역�
 ### 필요한 설정
 
 레포 **Settings → Secrets and variables → Actions → New repository secret**
-에서 `OPENAI_API_KEY` 를 등록해야 워크플로가 정상 동작합니다. (키가 없으면
+에서 `GEMINI_API_KEY` 를 등록해야 워크플로가 정상 동작합니다. Google AI Studio
+(https://aistudio.google.com/apikey) 에서 무료로 발급받을 수 있습니다. (키가 없으면
 번역 스텝이 즉시 에러로 종료되고, 사이트 배포 자체에는 영향을 주지 않습니다.)
 
 ### 로컬에서 직접 번역 테스트하기
 
 ```bash
 # 프로젝트 루트에 .env.local 파일 생성 (.env* 는 .gitignore 에 포함되어 커밋되지 않음)
-echo "OPENAI_API_KEY=sk-..." > .env.local
+echo "GEMINI_API_KEY=AIza..." > .env.local
 
 npm run translate
 ```

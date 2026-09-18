@@ -2,7 +2,7 @@
 /**
  * scripts/translate.mjs
  *
- * 한국어 콘텐츠(src/content/**)를 OpenAI API로 영어로 자동 번역해
+ * 한국어 콘텐츠(src/content/**)를 Google Gemini API로 영어로 자동 번역해
  * src/content-en/** 에 미러링하는 스크립트.
  *
  * 정책: "변경 감지 기반 재번역"
@@ -13,16 +13,17 @@
  *   - 번역 결과 frontmatter에는 sourceHash 를 기록해서 다음 실행 시 변경 여부를 판단한다.
  *
  * 사용법:
- *   로컬 실행: 프로젝트 루트에 .env.local 파일을 만들고 OPENAI_API_KEY=sk-... 작성 후
+ *   로컬 실행: 프로젝트 루트에 .env.local 파일을 만들고 GEMINI_API_KEY=AIza... 작성 후
  *     npm run translate
  *   (.env.local 은 .gitignore 에 포함되어 있어 커밋되지 않음)
  *
- *   CI(GitHub Actions) 실행: 워크플로에서 OPENAI_API_KEY 환경변수를 주입한 뒤
+ *   CI(GitHub Actions) 실행: 워크플로에서 GEMINI_API_KEY 환경변수를 주입한 뒤
  *     node scripts/translate.mjs 로 직접 실행 (.env.local 불필요).
  *
  * 필요 환경변수:
- *   OPENAI_API_KEY  (필수) - 없으면 즉시 에러 메시지와 함께 exit 1
- *   OPENAI_MODEL    (선택) - 기본값 'gpt-4o-mini'
+ *   GEMINI_API_KEY  (필수) - Google AI Studio(https://aistudio.google.com/apikey)에서 발급.
+ *                    없으면 즉시 에러 메시지와 함께 exit 1
+ *   GEMINI_MODEL    (선택) - 기본값 'gemini-2.0-flash' (무료 티어 지원 모델)
  */
 
 import fs from "node:fs";
@@ -44,8 +45,8 @@ const CATEGORIES = ["projects", "tech", "review", "thoughts"];
 const CONTENT_DIR = path.join(projectRoot, "src", "content");
 const CONTENT_EN_DIR = path.join(projectRoot, "src", "content-en");
 
-const OPENAI_ENDPOINT = "https://api.openai.com/v1/chat/completions";
-const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 // 원본 값을 그대로 유지해야 하는 구조적 frontmatter 필드
 const STRUCTURAL_FIELDS = [
@@ -115,44 +116,45 @@ function collectTranslationTargets() {
 async function translateOne({ data, content }) {
   const userPayload = JSON.stringify({ data, content });
 
-  const res = await fetch(OPENAI_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: OPENAI_MODEL,
-      response_format: { type: "json_object" },
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: userPayload },
-      ],
-    }),
-  });
+  const res = await fetch(
+    `${GEMINI_ENDPOINT}?key=${process.env.GEMINI_API_KEY}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents: [{ role: "user", parts: [{ text: userPayload }] }],
+        generationConfig: {
+          responseMimeType: "application/json",
+        },
+      }),
+    }
+  );
 
   if (!res.ok) {
     const bodyText = await res.text().catch(() => "");
     throw new Error(
-      `OpenAI API request failed: ${res.status} ${res.statusText} ${bodyText}`
+      `Gemini API request failed: ${res.status} ${res.statusText} ${bodyText}`
     );
   }
 
   const json = await res.json();
-  const messageContent = json?.choices?.[0]?.message?.content;
+  const messageContent = json?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!messageContent) {
-    throw new Error("OpenAI API response did not contain message content");
+    throw new Error(
+      `Gemini API response did not contain text (finishReason: ${json?.candidates?.[0]?.finishReason ?? "unknown"})`
+    );
   }
 
   let parsed;
   try {
     parsed = JSON.parse(messageContent);
   } catch (err) {
-    throw new Error(`Failed to parse OpenAI response JSON: ${err.message}`);
+    throw new Error(`Failed to parse Gemini response JSON: ${err.message}`);
   }
 
   if (!parsed || typeof parsed !== "object" || !("data" in parsed) || !("content" in parsed)) {
-    throw new Error("OpenAI response JSON missing required 'data'/'content' keys");
+    throw new Error("Gemini response JSON missing required 'data'/'content' keys");
   }
 
   return parsed;
@@ -170,10 +172,10 @@ function finalizeData(translatedData, originalData, sourceHash) {
 }
 
 async function main() {
-  if (!process.env.OPENAI_API_KEY) {
+  if (!process.env.GEMINI_API_KEY) {
     console.error(
-      "[translate] ERROR: OPENAI_API_KEY 환경변수가 설정되어 있지 않습니다. " +
-        "로컬에서는 .env.local 에 OPENAI_API_KEY=sk-... 를 설정하거나, " +
+      "[translate] ERROR: GEMINI_API_KEY 환경변수가 설정되어 있지 않습니다. " +
+        "로컬에서는 .env.local 에 GEMINI_API_KEY=AIza... 를 설정하거나(https://aistudio.google.com/apikey 에서 발급), " +
         "CI에서는 워크플로 secrets 로 주입해주세요."
     );
     process.exit(1);

@@ -34,19 +34,19 @@ Pretendard 폰트, 번호 매김 리스트형 글/프로젝트 목록). 포인�
 - 콘텐츠 로딩/파싱은 `src/lib/content.ts` (`getAllPosts`, `getPostBySlug`, `getAllProjects`,
   `getProjectBySlug`, `getAdjacentPosts`, 전부 `locale: 'ko' | 'en' = 'ko'` 파라미터 지원).
 
-## 자동 번역 (OpenAI API)
+## 자동 번역 (Google Gemini API)
 
 `.github/workflows/translate.yml` + `scripts/translate.mjs`.
 
 - 한국어 원문의 sha256 해시를 영문 파일 frontmatter의 `sourceHash` 에 저장해두고 비교한다.
   `content-en` 파일이 없거나 해시가 다르면(=원문이 새로 추가되었거나 수정되었으면) 재번역한다.
 - `main` 브랜치에 `src/content/**/*.mdx` 변경이 포함된 push가 있으면 워크플로가 돌아
-  OpenAI API로 번역하고 `github-actions[bot]` 명의로 커밋·푸시한다. 그 커밋이 다시
+  Gemini API로 번역하고 `github-actions[bot]` 명의로 커밋·푸시한다. 그 커밋이 다시
   `deploy.yml` 을 트리거해 배포까지 이어진다.
 - 무한루프 방지: `translate.yml` 은 `github.actor != 'github-actions[bot]'` 조건으로
   봇 자신의 커밋에는 반응하지 않는다.
-- 리포지토리 시크릿 `OPENAI_API_KEY` 필요 (Settings → Secrets and variables → Actions).
-- 로컬 테스트: 루트에 `.env.local` 만들고 `OPENAI_API_KEY=sk-...` 작성 후 `npm run translate`.
+- 리포지토리 시크릿 `GEMINI_API_KEY` 필요 (https://aistudio.google.com/apikey 에서 무료 발급) (Settings → Secrets and variables → Actions).
+- 로컬 테스트: 루트에 `.env.local` 만들고 `GEMINI_API_KEY=AIza...` 작성 후 `npm run translate`.
 - 자세한 내용은 `README.md` "자동 번역" 섹션 참고.
 
 ## 선택 기능 통합
