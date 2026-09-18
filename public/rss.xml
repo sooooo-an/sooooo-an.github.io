@@ -6,6 +6,13 @@
     <description>복잡한 제품의 실패 조건을 정의하고 안정적으로 운영되는 프론트엔드 시스템을 만듭니다.</description>
     <language>ko</language>
     <item>
+      <title>자동 번역 파이프라인 테스트</title>
+      <link>https://sooooo-an.github.io/writing/translation-pipeline-test/</link>
+      <guid>https://sooooo-an.github.io/writing/translation-pipeline-test/</guid>
+      <description>Gemini API 기반 자동 번역이 잘 동작하는지 확인하기 위한 테스트 글.</description>
+      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>프론트엔드에서 실패 조건을 먼저 정의하는 법</title>
       <link>https://sooooo-an.github.io/writing/frontend-failure-conditions/</link>
       <guid>https://sooooo-an.github.io/writing/frontend-failure-conditions/</guid>

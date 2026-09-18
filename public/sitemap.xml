@@ -49,6 +49,9 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/frontend-reliability/" />
   </url>
   <url>
+    <loc>https://sooooo-an.github.io/writing/translation-pipeline-test/</loc>
+  </url>
+  <url>
     <loc>https://sooooo-an.github.io/writing/frontend-failure-conditions/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/frontend-failure-conditions/" />

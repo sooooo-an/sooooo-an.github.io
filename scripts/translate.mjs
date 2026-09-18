@@ -23,7 +23,7 @@
  * 필요 환경변수:
  *   GEMINI_API_KEY  (필수) - Google AI Studio(https://aistudio.google.com/apikey)에서 발급.
  *                    없으면 즉시 에러 메시지와 함께 exit 1
- *   GEMINI_MODEL    (선택) - 기본값 'gemini-2.0-flash' (무료 티어 지원 모델)
+ *   GEMINI_MODEL    (선택) - 기본값 'gemini-3.6-flash' (무료 티어 지원 모델)
  */
 
 import fs from "node:fs";
@@ -45,7 +45,7 @@ const CATEGORIES = ["projects", "tech", "review", "thoughts"];
 const CONTENT_DIR = path.join(projectRoot, "src", "content");
 const CONTENT_EN_DIR = path.join(projectRoot, "src", "content-en");
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.0-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.6-flash";
 const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 // 원본 값을 그대로 유지해야 하는 구조적 frontmatter 필드
