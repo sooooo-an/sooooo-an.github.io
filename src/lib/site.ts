@@ -19,3 +19,24 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
+/**
+ * canonical + hreflang alternates 헬퍼.
+ * koPath/enPath 는 선행 슬래시를 포함한 절대 경로 (예: '/', '/projects/').
+ */
+export function alternatesFor(
+  koPath: string,
+  enPath: string,
+  current: 'ko' | 'en'
+) {
+  const koUrl = `${siteConfig.url}${koPath}`;
+  const enUrl = `${siteConfig.url}${enPath}`;
+  return {
+    canonical: current === 'ko' ? koUrl : enUrl,
+    languages: {
+      ko: koUrl,
+      en: enUrl,
+      'x-default': koUrl,
+    },
+  };
+}

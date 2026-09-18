@@ -1,42 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sooooo-an.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/about/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/about/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/resume/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/resume/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/resume/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/resume/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/ai-voc-copilot/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/ai-voc-copilot/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/design-tokens-pipeline/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/design-tokens-pipeline/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/design-tokens-pipeline/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/design-tokens-pipeline/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/frontend-reliability/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/frontend-reliability/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/frontend-reliability/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/frontend-reliability/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/frontend-failure-conditions/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/frontend-failure-conditions/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/error-boundary-strategy/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/error-boundary-strategy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/staff-engineer-book/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/staff-engineer-book/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/design-systems-book/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/design-systems-book/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/design-systems-book/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/design-systems-book/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/why-i-write/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/why-i-write/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/why-i-write/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/why-i-write/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/writing/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/about/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/about/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/resume/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/resume/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/resume/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/resume/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/ai-voc-copilot/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/ai-voc-copilot/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/design-tokens-pipeline/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/design-tokens-pipeline/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/design-tokens-pipeline/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/design-tokens-pipeline/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/frontend-reliability/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/frontend-reliability/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/frontend-reliability/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/frontend-reliability/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/writing/frontend-failure-conditions/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/frontend-failure-conditions/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/writing/error-boundary-strategy/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/error-boundary-strategy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/writing/staff-engineer-book/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/staff-engineer-book/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/writing/design-systems-book/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/design-systems-book/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/design-systems-book/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/design-systems-book/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/writing/why-i-write/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/why-i-write/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/why-i-write/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/why-i-write/" />
   </url>
 </urlset>

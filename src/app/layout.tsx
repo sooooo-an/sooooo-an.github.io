@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: 'ko_KR',
+    alternateLocale: 'en_US',
     type: 'website',
   },
   twitter: {
