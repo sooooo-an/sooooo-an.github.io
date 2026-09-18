@@ -7,10 +7,10 @@ export const siteConfig = {
   email: 'devsoo0527@gmail.com',
   github: 'https://github.com/sooooo-an',
   giscus: {
-    repo: '',
-    repoId: '',
-    category: '',
-    categoryId: '',
+    repo: 'sooooo-an/sooooo-an.github.io',
+    repoId: 'R_kgDOUfwFzg',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOUfwFzs4DF3F4',
   },
   analytics: {
     umamiWebsiteId: '',
