@@ -23,9 +23,6 @@ export default function ProjectsPage({ locale = 'ko' }: { locale?: Locale }) {
         <h1 className="hero-name" style={{ fontSize: 32 }}>
           {dict.projectsPage.title}
         </h1>
-        <p style={{ color: 'var(--color-meta)', marginTop: 12 }}>
-          {dict.projectsPage.desc}
-        </p>
       </section>
       <section className="section" style={{ marginTop: 0 }}>
         <ul className="numbered-list">

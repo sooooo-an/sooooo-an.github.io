@@ -78,7 +78,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     },
     projectsPage: {
       title: 'Projects',
-      desc: '카드 소개로 끝내지 않고, 각 프로젝트가 증명하는 역량과 과정을 케이스 스터디로 정리했습니다.',
+      desc: '안수경이 진행한 프로젝트 목록입니다.',
     },
     writingPage: {
       title: 'Writing',
@@ -150,7 +150,7 @@ export const dictionary: Record<Locale, Dictionary> = {
     },
     projectsPage: {
       title: 'Projects',
-      desc: "Not just a card introduction — each project is written up as a case study of the skills it proves and the process behind it.",
+      desc: 'Projects by Sookyung An.',
     },
     writingPage: {
       title: 'Writing',
