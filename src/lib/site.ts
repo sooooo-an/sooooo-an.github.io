@@ -3,7 +3,7 @@ export const siteConfig = {
   role: 'Frontend Engineer',
   url: 'https://sooooo-an.github.io',
   description:
-    '복잡한 제품의 실패 조건을 정의하고 안정적으로 운영되는 프론트엔드 시스템을 만듭니다.',
+    '한 사람의 역량에 AI를 더해, 기획부터 개발과 수익화까지 직접 굴려보는 프론트엔드 개발자입니다.',
   email: 'devsoo0527@gmail.com',
   github: 'https://github.com/sooooo-an',
   giscus: {

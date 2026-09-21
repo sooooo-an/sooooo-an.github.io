@@ -59,22 +59,23 @@ export const dictionary: Record<Locale, Dictionary> = {
     sectionMore: '전체 보기 →',
     home: {
       heroDesc:
-        '복잡한 제품의 실패 조건을 정의하고\n안정적으로 운영되는 프론트엔드 시스템을 만듭니다.',
+        'All-in-One 개발을 지향합니다.\n한 사람의 역량에 AI를 더해, 만든 제품이 실제로 돈을 버는 데까지 가는 일에 관심이 있습니다.',
       heroButtons: { projects: '프로젝트 보기', writing: '글 보기', github: 'GitHub' },
       featuredProjects: '대표 프로젝트',
       featuredPosts: '대표 글',
       interestsTitle: '현재 관심 분야',
       interestsDesc:
-        '운영 중인 제품이 실패하는 조건을 먼저 정의하고, 그 위에서 안정적으로 동작하는 프론트엔드 시스템을 만드는 데 관심이 있습니다.',
+        'AI를 도구로 써서 한 사람이 감당할 수 있는 범위를 넓히는 데 관심이 있습니다. 만들고 끝내는 게 아니라, 지표를 보고 수익으로 이어지는 구조까지 만들어보고 있습니다.',
       interests: [
-        '프론트엔드 신뢰성과 관측 가능성',
+        'All-in-One 제품 개발',
         'AI를 활용한 제품 운영 자동화',
-        '디자인 시스템과 협업 워크플로',
-        'Product Engineering',
+        '제품 지표와 그로스',
+        '수익화와 사업화',
+        '임베드 위젯 아키텍처',
       ],
       contact: '연락처',
       siteDescription:
-        '복잡한 제품의 실패 조건을 정의하고 안정적으로 운영되는 프론트엔드 시스템을 만듭니다.',
+        '한 사람의 역량에 AI를 더해, 기획부터 개발과 수익화까지 직접 굴려보는 프론트엔드 개발자입니다.',
     },
     projectsPage: {
       title: 'Projects',
@@ -131,22 +132,23 @@ export const dictionary: Record<Locale, Dictionary> = {
     sectionMore: 'View all →',
     home: {
       heroDesc:
-        'I define the failure conditions of complex products\nand build frontend systems that run reliably in production.',
+        "I aim to build end to end, on my own.\nI'm interested in combining one person's skills with AI to take a product all the way to revenue.",
       heroButtons: { projects: 'View Projects', writing: 'View Writing', github: 'GitHub' },
       featuredProjects: 'Featured Projects',
       featuredPosts: 'Featured Writing',
       interestsTitle: 'Current Interests',
       interestsDesc:
-        "I'm interested in first defining the conditions under which a live product fails, then building frontend systems that behave reliably on top of that foundation.",
+        "I'm interested in using AI to widen the range one person can cover — not just shipping something, but building the loop from metrics through to revenue.",
       interests: [
-        'Frontend reliability & observability',
+        'End-to-end product development',
         'AI-assisted product operations automation',
-        'Design systems & collaboration workflows',
-        'Product Engineering',
+        'Product metrics & growth',
+        'Monetization & building a business',
+        'Embedded widget architecture',
       ],
       contact: 'Contact',
       siteDescription:
-        'I define the failure conditions of complex products and build frontend systems that run reliably in production.',
+        "A frontend developer combining one person's skills with AI — from planning and building through to revenue.",
     },
     projectsPage: {
       title: 'Projects',
