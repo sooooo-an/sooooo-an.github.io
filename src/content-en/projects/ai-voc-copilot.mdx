@@ -1,49 +1,55 @@
 ---
-title: AI VOC Copilot
+title: CS Dashboard (AI VOC)
 summary: >-
-  An AI-powered operations tool that turns customer inquiries into
-  evidence-based product improvements
-role: Frontend Lead
-period: 2025.03 ~ Present
+  An internal tool that analyzes Channel Talk CS data using AI to connect
+  customer feedback directly to actionable product improvements
+role: Personal Project (Design & Development)
+period: 2026 – Present
 stack:
   - Next.js
   - TypeScript
-  - React Query
   - LLM API
+  - Channel Talk API
+  - Jira API
+  - Slack API
 proves:
-  - AI evaluation
-  - Async workflows
-  - Evidence tracing
+  - AI Utilization
+  - External API Integration
+  - Workflow Automation
   - Product Engineering
-featured: true
-order: 1
-sourceHash: 2c9f231dff829d9e0cffde86163e1f8c159955a89d96aed414d92f5904480dcc
+featured: false
+order: 5
+sourceHash: 64a4ca49f6b58a6d32893d7d09c0dc061cd85449abdf4ad15fb2c3ea9bacc268
 ---
 
 ## Background
 
-(To be written)
+Customer support (CS) inquiries represent the most direct source of data for product improvement. In practice, however, they often sat idle inside Channel Talk without reaching product discussions. Even when brought up, they were usually conveyed as vague impressions like, "It feels like we're getting a lot of these inquiries."
 
-## Problem Definition
+## Problem Statement
 
-(To be written)
+The issue wasn't a lack of data, but that the data was scattered and unsummarized. CS records lived in Channel Talk, development tasks in Jira, and discussions in Slack.
 
 ## Failure Conditions
 
-(To be written)
+- **Failure if AI hallucinated or strayed from the original source:** Summaries without traceable evidence are meaningless.
+- **Failure if manual execution was required:** The process needed to be fully automated rather than manually triggered every time.
+- **Failure if summaries didn't lead to action:** Insights had to connect directly to executable tasks.
 
 ## Approach
 
-(To be written)
+I built a end-to-end workflow that extracts CS data from Channel Talk, analyzes it with AI, and routes the insights to Jira tasks and Slack notifications. I focused on ensuring every summary point could be traced back to the original inquiry, establishing verifiable evidence rather than relying on "because the AI said so."
 
 ## Implementation
 
-(To be written)
+- Built a Channel Talk CS data collection and AI analysis pipeline.
+- Integrated analysis outputs directly into Jira task creation.
+- Added Slack notification integration to push actionable results directly to where the team communicates.
 
 ## Results
 
-(To be written)
+Established a seamless pathway that transformed CS inquiries from "idle, sitting data" into "prioritized improvement candidates backed by verifiable evidence."
 
-## Lessons Learned
+## Key Takeaways
 
-(To be written)
+While AI summaries are convenient, they quickly lose user trust if verifiability isn't baked into the design. I learned that a simple feature—like a direct link to trace a summary back to its original source text—can determine the long-term adoption and survival of an internal tool.

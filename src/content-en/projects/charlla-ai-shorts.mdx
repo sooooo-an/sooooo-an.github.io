@@ -1,0 +1,56 @@
+---
+title: AI Shorts
+summary: >-
+  Image-based AI short-form video generation feature — A paid feature designed
+  with integrated credit payment and asynchronous generation flows
+role: Frontend & Backend Lead (Self / PM 1 / PD 1)
+period: 2026.07 ~ Present
+stack:
+  - Next.js
+  - React
+  - TypeScript
+  - TanStack Query
+  - Zustand
+  - AWS S3
+proves:
+  - Async State Architecture
+  - Payments & Credits
+  - Idempotency
+  - Full-Stack Ownership
+featured: true
+order: 2
+sourceHash: 1c56c0ab3597428ec6227c6bc1bd314720aaec4428b60c178eb2b990dcefdd13
+---
+
+## Background
+
+This feature enables users to create AI short-form videos using just images and immediately save the output to their content library. Because it is a paid feature involving credit deductions, simply making it work on a basic level was not enough.
+
+## Problem Statement
+
+Generation takes time, during which users may close the tab, refresh, or navigate away. Introducing credit deduction to this flow significantly increases complexity. Scenarios where credits are deducted without producing a result, or where a single request causes double deductions, directly impact and harm the user.
+
+## Failure Conditions
+
+- Credits are deducted, but no output is generated
+- A single request results in duplicate generation or duplicate deduction
+- Returning after payment forces the user to start over from scratch instead of resuming generation
+
+## Approach
+
+I first modeled the generation flow itself as a finite state machine. After defining valid states and allowed transitions, I layered credit balance checks, deductions, insufficient balance handling, and post-payment generation resumption on top of this state model.
+
+## Implementation
+
+- Synchronized generation status via polling with step-by-step retry mechanisms
+- Added navigation guards to handle user drop-offs during generation
+- Implemented safeguards to prevent duplicate generation, duplicate deduction, and duplicate library registration
+- Owned both Frontend and Backend, designing API contracts and state transitions under a single, cohesive standard
+
+## Results
+
+Currently operating in production as a paid feature where credit payments and asynchronous generation proceed seamlessly in a single, unbroken flow.
+
+## Key Takeaways
+
+"Asynchronous tasks involving financial transactions" have far more failure paths than success paths. By explicitly listing failure conditions before writing code, I significantly reduced the need for hasty, last-minute exception handling later in development.
