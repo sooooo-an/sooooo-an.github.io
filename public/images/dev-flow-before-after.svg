@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-label="AI 이전과 이후의 개발 플로우 비교">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9aa1ad" />
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8B5FC0" />
+    </marker>
+    <style>
+      .label { font: 600 15px sans-serif; fill: #9aa1ad; }
+      .box   { font: 500 16px sans-serif; fill: #6b7280; }
+      .boxA  { font: 600 16px sans-serif; fill: #ffffff; }
+      .note  { font: 400 13px sans-serif; fill: #9aa1ad; }
+    </style>
+  </defs>
+
+  <!-- AI 이전 -->
+  <text class="label" x="0" y="72">AI 이전</text>
+  <g fill="none" stroke="#c9ced8" stroke-width="1.5">
+    <rect x="110" y="44" width="130" height="52" rx="10" />
+    <rect x="280" y="44" width="130" height="52" rx="10" />
+    <rect x="450" y="44" width="130" height="52" rx="10" />
+    <rect x="620" y="44" width="130" height="52" rx="10" />
+  </g>
+  <text class="box" x="175" y="76" text-anchor="middle">기획</text>
+  <text class="box" x="345" y="76" text-anchor="middle">디자인</text>
+  <text class="box" x="515" y="76" text-anchor="middle">개발</text>
+  <text class="box" x="685" y="76" text-anchor="middle">QA</text>
+  <g stroke="#9aa1ad" stroke-width="1.5" marker-end="url(#arrow)">
+    <line x1="244" y1="70" x2="272" y2="70" />
+    <line x1="414" y1="70" x2="442" y2="70" />
+    <line x1="584" y1="70" x2="612" y2="70" />
+  </g>
+
+  <!-- 구분선 -->
+  <line x1="0" y1="140" x2="880" y2="140" stroke="#c9ced8" stroke-width="1" stroke-dasharray="4 5" />
+
+  <!-- AI 이후 -->
+  <text class="label" x="0" y="212">AI 이후</text>
+  <rect x="110" y="184" width="130" height="52" rx="10" fill="#6B3FA0" />
+  <text class="boxA" x="175" y="216" text-anchor="middle">개발</text>
+  <rect x="280" y="184" width="230" height="52" rx="10" fill="#6B3FA0" />
+  <text class="boxA" x="395" y="216" text-anchor="middle">기획 또는 디자인 요청</text>
+  <line x1="244" y1="210" x2="272" y2="210" stroke="#8B5FC0" stroke-width="1.5" marker-end="url(#arrowAccent)" />
+
+  <rect x="546" y="184" width="304" height="52" rx="10" fill="none" stroke="#c9ced8" stroke-width="1.5" stroke-dasharray="5 4" />
+  <text class="note" x="698" y="208" text-anchor="middle">코딩 · 테스트는 AI가 담당</text>
+  <text class="note" x="698" y="226" text-anchor="middle">관심은 "왜 안 쓰지?" 쪽으로</text>
+</svg>

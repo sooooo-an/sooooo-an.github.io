@@ -50,7 +50,6 @@ export interface ProjectMeta {
   proves: string[];
   featured: boolean;
   order: number;
-  badge: ContentBadge;
 }
 
 export interface Project extends ProjectMeta {
@@ -165,7 +164,6 @@ export function getAllProjects(locale: Locale = 'ko'): Project[] {
       proves: data.proves ?? [],
       featured: Boolean(data.featured),
       order: typeof data.order === 'number' ? data.order : 999,
-      badge: getContentBadge(koSourcePath),
       content,
     };
   });
