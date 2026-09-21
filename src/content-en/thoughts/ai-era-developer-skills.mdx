@@ -1,12 +1,29 @@
 ---
-title: Essential Competencies for Developers in the AI Era
+title: 'The Development Process After AI, and Selective Focus'
 date: '2026-09-21'
-description: (To be written)
+description: >-
+  A record of where my time and attention shifted after AI made development
+  easier.
 category: thoughts
-tags: []
+tags:
+  - AI
+  - Developer Capabilities
+  - Lean Analytics
 featured: true
 draft: false
-sourceHash: addcaedfb4ccb1e3e26b78fa08c5af286aaff12b6c8de23c3e7058cc4ce48e90
+sourceHash: bc33637627e98cf993b7ca1692242d6357929de9b75aed9d59dffdd98840ea95
 ---
 
-(To be written)
+At my previous company, I spent a lot of time designing, writing code, doing QA, and analyzing data. Since it was a collaboration tool, the domain was more complex than at my current company. Even after joining my current company, until October of last year, while AI handled a lot of simple tasks, system design was still an area that required a lot of my own thought.
+
+Things are different now, though. If you paste a well-crafted spec onto a solid design system and existing code, AI handles the implementation based on the current codebase all on its own. There's no need to manually tweak much, and I no longer need to write E2E test code myself. Development has almost become boring.
+
+Perhaps because of this, whereas my pre-AI development flow followed a fixed sequence of "Planning → Design → Development → QA," the post-AI flow is shifting toward "Development → Planning or Design Requests." As development becomes easier, developers naturally seem to shift their attention elsewhere. In the past, I worked late coding just to meet deadlines, but now that AI takes care of "coding and testing," my interest has moved toward strategic and data-driven questions like, "What is the goal of this feature?" or "Why aren't users adopting this feature as much?"
+
+In fact, a widget feature I deployed recently isn't being used by users as much as I expected. It made me ponder why that might be. The same goes for a Cafe24 app I launched with colleagues from my former company. We launched it thinking it would do well, but the response was unexpectedly lukewarm. That's why I've been reading *Lean Analytics* lately.
+
+A recurring concept in this book is **OMTM (One Metric That Matters)**. The authors state that data is meaningful only when it helps inform your next action. Up until now, I had looked at plenty of vanity metrics (like total visitors or page views) that looked impressive on paper, but I had never thought deeply about what stage my service was currently in or what single metric I should be focusing on at that stage. The book explains that a business goes through stages: Empathy → Stickiness → Virality → Revenue → Scale, and the metrics to focus on change with each stage. For both the widget and the Cafe24 app, I had finished "building and shipping them," but I hadn't mapped out what stage they were currently in or what metrics I should actually be tracking.
+
+Talking to other developers recently, it seems that more people than I thought have broadened their focus in a similar way.
+
+Because of this, I don't believe developers will disappear in the AI era. Instead, I think we will become much more generalist. Not just someone who writes code, but someone who crosses boundaries to plan features, analyze data, and translate that back into code. In my next post, I plan to write about actually applying the metrics I learned from *Lean Analytics* to the widget and the Cafe24 app.
