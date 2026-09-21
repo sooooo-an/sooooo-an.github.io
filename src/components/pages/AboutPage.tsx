@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import { siteConfig } from '@/lib/site';
 import { careerTimeline, totalCareer } from '@/lib/career';
-import { t, localePath, type Locale } from '@/lib/i18n/dictionary';
+import { t, type Locale } from '@/lib/i18n/dictionary';
 
 export default function AboutPage({ locale = 'ko' }: { locale?: Locale }) {
   const dict = t(locale);
@@ -58,9 +57,6 @@ export default function AboutPage({ locale = 'ko' }: { locale?: Locale }) {
           {dict.aboutPage.resumeTitle}
         </h2>
         <div className="hero-actions">
-          <Link href={localePath(locale, '/resume/')} className="btn btn-outline">
-            {dict.aboutPage.resumeLink}
-          </Link>
           <a href="/resume.pdf" className="btn btn-outline" download>
             {dict.aboutPage.resumePdf}
           </a>
