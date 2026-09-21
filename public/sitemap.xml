@@ -49,37 +49,10 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/frontend-reliability/" />
   </url>
   <url>
-    <loc>https://sooooo-an.github.io/writing/translation-pipeline-test/</loc>
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/writing/frontend-failure-conditions/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/frontend-failure-conditions/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/writing/error-boundary-strategy/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/error-boundary-strategy/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/writing/staff-engineer-book/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/staff-engineer-book/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/writing/design-systems-book/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/design-systems-book/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/design-systems-book/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/design-systems-book/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/writing/why-i-write/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/why-i-write/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/why-i-write/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/why-i-write/" />
+    <loc>https://sooooo-an.github.io/writing/ai-era-developer-skills/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/ai-era-developer-skills/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/ai-era-developer-skills/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/ai-era-developer-skills/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/en/</loc>
@@ -130,33 +103,9 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/frontend-reliability/" />
   </url>
   <url>
-    <loc>https://sooooo-an.github.io/en/writing/frontend-failure-conditions/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/frontend-failure-conditions/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/frontend-failure-conditions/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/en/writing/error-boundary-strategy/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/error-boundary-strategy/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/error-boundary-strategy/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/en/writing/staff-engineer-book/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/staff-engineer-book/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/staff-engineer-book/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/en/writing/design-systems-book/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/design-systems-book/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/design-systems-book/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/design-systems-book/" />
-  </url>
-  <url>
-    <loc>https://sooooo-an.github.io/en/writing/why-i-write/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/why-i-write/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/why-i-write/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/why-i-write/" />
+    <loc>https://sooooo-an.github.io/en/writing/ai-era-developer-skills/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/writing/ai-era-developer-skills/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/writing/ai-era-developer-skills/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/writing/ai-era-developer-skills/" />
   </url>
 </urlset>

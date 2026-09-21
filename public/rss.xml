@@ -6,46 +6,11 @@
     <description>복잡한 제품의 실패 조건을 정의하고 안정적으로 운영되는 프론트엔드 시스템을 만듭니다.</description>
     <language>ko</language>
     <item>
-      <title>자동 번역 파이프라인 테스트</title>
-      <link>https://sooooo-an.github.io/writing/translation-pipeline-test/</link>
-      <guid>https://sooooo-an.github.io/writing/translation-pipeline-test/</guid>
-      <description>Gemini API 기반 자동 번역이 잘 동작하는지 확인하기 위한 테스트 글.</description>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>프론트엔드에서 실패 조건을 먼저 정의하는 법</title>
-      <link>https://sooooo-an.github.io/writing/frontend-failure-conditions/</link>
-      <guid>https://sooooo-an.github.io/writing/frontend-failure-conditions/</guid>
-      <description>기능을 만들기 전에 무엇이 실패인지부터 합의하면 설계가 달라집니다.</description>
-      <pubDate>Fri, 10 Jan 2025 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>에러 바운더리를 어디에 둘 것인가</title>
-      <link>https://sooooo-an.github.io/writing/error-boundary-strategy/</link>
-      <guid>https://sooooo-an.github.io/writing/error-boundary-strategy/</guid>
-      <description>화면 전체가 아니라 실패 단위로 에러 바운더리를 나누는 전략.</description>
-      <pubDate>Sat, 02 Nov 2024 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>『Staff Engineer』를 읽고</title>
-      <link>https://sooooo-an.github.io/writing/staff-engineer-book/</link>
-      <guid>https://sooooo-an.github.io/writing/staff-engineer-book/</guid>
-      <description>시니어 이후의 성장 경로를 다루는 책에서 얻은 관점 정리.</description>
-      <pubDate>Tue, 20 Aug 2024 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>디자인 시스템 관련 서적 비교</title>
-      <link>https://sooooo-an.github.io/writing/design-systems-book/</link>
-      <guid>https://sooooo-an.github.io/writing/design-systems-book/</guid>
-      <description>디자인 시스템을 다루는 책 두 권을 비교하며 읽은 기록.</description>
-      <pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>왜 기록을 남기기로 했는가</title>
-      <link>https://sooooo-an.github.io/writing/why-i-write/</link>
-      <guid>https://sooooo-an.github.io/writing/why-i-write/</guid>
-      <description>일하며 생각한 것들을 글로 남기기로 한 이유.</description>
-      <pubDate>Fri, 01 Mar 2024 00:00:00 GMT</pubDate>
+      <title>AI 시대에 개발자가 갖춰야 할 역량</title>
+      <link>https://sooooo-an.github.io/writing/ai-era-developer-skills/</link>
+      <guid>https://sooooo-an.github.io/writing/ai-era-developer-skills/</guid>
+      <description>코드를 빨리 쓰는 능력보다 무엇이 더 오래 남을지에 대한 생각.</description>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
