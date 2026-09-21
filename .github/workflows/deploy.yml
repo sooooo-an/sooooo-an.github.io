@@ -3,6 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # 자동 번역 워크플로가 끝나면 이어서 배포한다.
+  # (기본 GITHUB_TOKEN 으로 만든 push 는 다른 워크플로를 트리거하지 못하므로 필요)
+  workflow_run:
+    workflows: ['Auto-translate new content']
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -17,10 +22,14 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # workflow_run 으로 들어온 경우에는 번역이 성공했을 때만 배포한다.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          # workflow_run 이벤트에서도 번역 커밋이 반영된 최신 main 을 받아온다.
+          ref: main
           fetch-depth: 0
 
       - name: Setup Node
