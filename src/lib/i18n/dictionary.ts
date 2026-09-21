@@ -91,7 +91,7 @@ export const dictionary: Record<Locale, Dictionary> = {
       title: 'About',
       problemTitle: '어떤 문제를 잘 해결하는지',
       problemBody:
-        '프론트엔드에서 출발했지만 필요하면 백엔드도, 기획도, 지표 설계도 직접 합니다. 경계를 나누기보다 문제를 끝까지 끌고 가는 방식으로 일해왔습니다. 요즘은 만든 기능이 왜 안 쓰이는지를 데이터로 확인하고 다음 행동을 정하는 쪽에 시간을 더 쓰고 있습니다.',
+        '프론트엔드를 주로 해왔습니다. 다만 역할을 나누기보다 문제를 끝까지 따라가는 편이라, 필요하면 백엔드나 기획, 지표 쪽도 같이 들여다보게 됩니다. 요즘은 만든 기능이 왜 안 쓰이는지를 데이터로 확인하고 다음 행동을 정하는 데 시간을 더 쓰고 있습니다.',
       productTitle: '어떤 제품을 만들고 싶은지',
       productBody:
         '기획부터 개발, 배포, 지표 확인까지 혼자서도 굴릴 수 있는 제품을 만들고 싶습니다. AI를 도구로 써서 한 사람이 감당할 수 있는 범위를 넓히고, 그 결과가 실제로 돈을 버는 데까지 이어지는 것이 목표입니다.',
@@ -164,7 +164,7 @@ export const dictionary: Record<Locale, Dictionary> = {
       title: 'About',
       problemTitle: 'What problems I solve well',
       problemBody:
-        "I started in frontend, but I'll take on backend, product planning, or metrics design when the problem calls for it. I'd rather carry a problem through to the end than stop at a role boundary. Lately I've been spending more time figuring out — from the data — why a feature isn't being used, and deciding what to do next.",
+        "Frontend is where I've spent most of my time. I tend to follow a problem through rather than stop at a role boundary, so I end up looking into the backend, the product spec, or the metrics when that's what it takes. Lately I've been spending more time figuring out — from the data — why a feature isn't being used, and deciding what to do next.",
       productTitle: 'What I want to build',
       productBody:
         'I want to build products I can run on my own, from planning through shipping to reading the metrics. The goal is to use AI to widen the range one person can cover, and to take that all the way to actually making money.',
