@@ -1,0 +1,54 @@
+---
+title: Short-form Widgets and Embedded Players
+summary: >-
+  Redesigning the loading architecture and deployment pipeline for short-form
+  video widgets embedded on e-commerce sites
+role: Frontend (FE 1 / BE 1 / PM 1 / PD 1)
+period: 2026.01 ~ 2026.04
+stack:
+  - Next.js
+  - TypeScript
+  - pnpm workspace
+  - Playwright
+  - CloudFront
+proves:
+  - Embed Architecture
+  - Performance Optimization
+  - Cross-Platform Verification
+  - Independent Deployment
+featured: true
+order: 1
+sourceHash: 36983a9d628e7657651c0e1bc22059ce794a311c37611215c8455a478c5ee818
+---
+## Background
+
+Charana is a B2B SaaS that embeds short-form video widgets on e-commerce sites. Because the widget runs inside third-party websites, our code directly impacts the performance and behavior of the host page. As we offered a wider variety of widget types—such as multi-shop players, sliders, floating widgets, and hero banners—the scope of this impact continuously expanded.
+
+## Problem Statement
+
+The main problem was that when multiple widgets were placed on a single page, videos loaded simultaneously, causing the entire host page to lag. On top of that, the widget code was tied to the main app deployment, meaning that even a minor widget fix required going through the full application release cycle.
+
+## Failure Criteria
+
+- Significantly degrading the loading performance of the host page
+- Inconsistent behavior across web, iOS, or Android WebViews
+- Having to redeploy the entire console/player app for a single line of widget fix
+
+## Approach
+
+I framed the loading problem as controlling "how many videos are actively loaded at the same time." By synchronizing active sources and freeing buffers for videos outside the viewport, I reduced the number of concurrently loaded videos by over 80%.
+
+Communication between the widget and the host page was migrated to a `postMessage`-based mechanism. Since behavioral differences between web and iOS/Android WebViews could lead to actual production incidents, I verified cross-environment consistency using Playwright E2E tests throughout the process.
+
+## Implementation
+
+- Separated widget scripts from the main app deployment to deploy them independently via CDN, introducing hash-based version management.
+- Converted the iframe-based console preview architecture into a `widget-core` package within a pnpm monorepo, allowing both the admin console and the player to share the exact same rendering logic.
+
+## Results
+
+Concurrently loaded videos decreased by over 80%, and widgets can now be deployed independently without relying on main app releases. Furthermore, because console previews and actual player rendering stem from the exact same codebase, issues where "it works in the console but renders differently in production" were significantly reduced.
+
+## Lessons Learned
+
+Code running on third-party pages must be evaluated from the perspective of the host page, not your own service standards. Also, assuming platform-specific differences "should work fine" almost always leads to production bugs; building verifiable automated tests from the start is ultimately the faster path.
