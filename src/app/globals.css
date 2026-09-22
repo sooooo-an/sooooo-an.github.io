@@ -454,15 +454,17 @@ a {
 
 /* Tailwind preflight 가 list-style 을 지우므로 본문에서는 되살린다 */
 .prose ul {
-  list-style: disc outside;
+  list-style-type: disc;
+  list-style-position: outside;
 }
 
 .prose ol {
-  list-style: decimal outside;
+  list-style-type: decimal;
+  list-style-position: outside;
 }
 
 .prose ul ul {
-  list-style: circle outside;
+  list-style-type: circle;
   margin-bottom: 0;
 }
 
