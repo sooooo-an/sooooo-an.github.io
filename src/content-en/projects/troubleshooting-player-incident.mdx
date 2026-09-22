@@ -1,0 +1,51 @@
+---
+title: Player 504 / OOMKilled Outage Incident Analysis
+summary: >-
+  Investigating complex root causes of recurring SSR player outages on EKS and
+  compiling an incident report
+role: Frontend Engineer (Root Cause Analysis & Report Drafting)
+period: During Charlla Operation
+stack:
+  - Next.js SSR
+  - EKS
+  - HPA
+  - CloudFront
+proves:
+  - Incident Analysis
+  - Infrastructure Debugging
+  - Complex Root Cause Tracing
+  - Incident Reporting
+featured: false
+hidden: true
+order: 6
+sourceHash: 410a21a35cdc72af6f0201c79b0ac6ad597be61b3e8694f8c7a94b9a7decb440
+---
+
+## Context
+
+The short-form player (`charlla-player`) runs on Next.js SSR hosted on EKS. At a certain point, pods repeatedly returned 504 errors or crashed due to OOMKilled. Although my primary role was frontend engineering, a crashing player directly affected client-facing pages, so I took the initiative to investigate the root causes.
+
+## Problem Definition
+
+While the symptom was singular (an outage), there were multiple candidate causes, none of which fully explained the issue on its own. Definitively blaming a single factor would have left us vulnerable to hitting the exact same wall during the next incident.
+
+## Approach
+
+Instead of hunting for a single culprit, I laid out a chronological timeline of events and evaluated how well each potential factor accounted for the observed symptoms.
+
+## Root Causes
+
+Ultimately, I determined that four overlapping factors caused the failure:
+
+- **HPA Configuration Issue** — Failed to scale properly in response to traffic spikes.
+- **Liveness Probe Sensitivity** — Exacerbated the situation by killing pods that experienced temporary slowness.
+- **CloudFront Cache Hit Ratio Drop** — Increased the volume of requests hitting the origin server.
+- **March 10 Widget Deployment** — The trigger that altered load patterns under the aforementioned conditions.
+
+## Results
+
+I authored a comprehensive incident report outlining each cause along with supporting evidence and shared it with the team. I structured the report so that actionable fixes could be applied at the configuration level.
+
+## Lessons Learned
+
+Production outages rarely stem from a single cause. To prevent recurrence, it is crucial to separate "what triggered the issue" from "why that trigger escalated into a full outage." Furthermore, even as a frontend engineer, ignoring the infrastructure layer makes it impossible to fully explain issues that surface on the user UI.
