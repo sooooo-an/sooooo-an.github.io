@@ -2,7 +2,7 @@ import { getListedProjects } from '@/lib/content';
 import { siteConfig } from '@/lib/site';
 import { t, localePath, type Locale } from '@/lib/i18n/dictionary';
 import { breadcrumbSchema } from '@/lib/jsonld';
-import ProjectRow from '@/components/ProjectRow';
+import ProjectCard from '@/components/ProjectCard';
 
 export default function ProjectsPage({ locale = 'ko' }: { locale?: Locale }) {
   const dict = t(locale);
@@ -25,9 +25,9 @@ export default function ProjectsPage({ locale = 'ko' }: { locale?: Locale }) {
         </h1>
       </section>
       <section className="section" style={{ marginTop: 0 }}>
-        <ul className="numbered-list">
+        <ul className="project-grid">
           {projects.map((project) => (
-            <ProjectRow key={project.slug} project={project} locale={locale} />
+            <ProjectCard key={project.slug} project={project} locale={locale} />
           ))}
         </ul>
       </section>

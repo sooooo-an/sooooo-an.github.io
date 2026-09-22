@@ -50,6 +50,8 @@ export interface ProjectMeta {
   proves: string[];
   featured: boolean;
   order: number;
+  /** 갤러리 카드 커버 이미지 경로 (예: /images/projects/widget.webp). 없으면 폴백을 그린다. */
+  cover: string;
   /** true 면 목록(Projects/Home)에 노출하지 않고 상세 페이지만 유지한다. */
   hidden: boolean;
   /** 이 프로젝트 상세에서 링크할 트러블슈팅 프로젝트 slug 목록 */
@@ -168,6 +170,7 @@ export function getAllProjects(locale: Locale = 'ko'): Project[] {
       proves: data.proves ?? [],
       featured: Boolean(data.featured),
       order: typeof data.order === 'number' ? data.order : 999,
+      cover: typeof data.cover === 'string' ? data.cover : '',
       hidden: Boolean(data.hidden),
       troubleshooting: Array.isArray(data.troubleshooting) ? data.troubleshooting : [],
       content,

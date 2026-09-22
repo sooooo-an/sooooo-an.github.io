@@ -68,6 +68,9 @@
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/troubleshooting-player-incident/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/troubleshooting-player-incident/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/troubleshooting-player-incident/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/troubleshooting-player-incident/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/ai-era-developer-skills/</loc>
@@ -134,6 +137,12 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/swit-developers/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/swit-developers/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/swit-developers/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/troubleshooting-player-incident/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/troubleshooting-player-incident/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/troubleshooting-player-incident/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/troubleshooting-player-incident/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/en/writing/ai-era-developer-skills/</loc>
