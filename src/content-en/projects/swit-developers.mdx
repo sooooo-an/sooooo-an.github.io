@@ -1,10 +1,10 @@
 ---
 title: Swit Developers & Store
 summary: >-
-  Architected a 3-tier system: Developer Portal, Marketplace, and
-  Client-Rendering SDK
-role: Frontend Engineer (Architecture Lead)
-period: At Swit Korea (Nov 2020 – Jun 2024)
+  Designing a 3-layer architecture for a Developer Portal, Marketplace, and
+  Client Rendering SDK
+role: Frontend Engineer (Architecture Design Lead)
+period: At Swit Korea (2020.11 ~ 2024.06)
 stack:
   - TypeScript
   - Server-Driven UI
@@ -17,37 +17,38 @@ proves:
   - Version Compatibility
 featured: false
 order: 4
-sourceHash: 124ae4b461d0aff19a8714e72e5240a1e3d6999818eb1699bdd2a58995e634c4
+cover: /images/projects/swit-developers.webp
+sourceHash: 08cc053641aeda68647fa30bdfabef69e3a89a3c8f1b42532f51799a16eaacef
 ---
 
 ## Background
 
-This project aimed to build an ecosystem enabling external developers to create and publish apps for the collaboration tool Swit. I designed a 3-tier architecture consisting of the Developer Portal, Marketplace, and a Client-Rendering SDK that renders third-party app UIs.
+This project aimed to build an ecosystem where third-party developers could create and publish apps on the collaboration tool Swit. I designed a three-layer architecture consisting of a Developer Portal, Marketplace, and a Client-Side Rendering SDK that renders third-party app UIs.
 
-## Problem Statement
+## Problem Definition
 
-The primary challenge was "safely rendering UI definitions provided by third parties within our client." Because it was a Server-Driven UI, we did not directly control the content to render, yet rendering arbitrary content posed significant security risks.
+The core challenge was: "How do we safely render UI definitions sent by third parties within our client?" Since it was Server-Driven UI, we didn't directly control the content to be rendered, yet rendering arbitrary input poses serious security risks.
 
-## Failure Conditions
+## Criteria for Failure
 
-- Failure if arbitrary scripts execute from third-party definitions
-- Failure if existing apps break when the SDK version upgrades
-- Failure if out-of-order asynchronous responses cause the wrong view to render
+- Failure if arbitrary scripts execute due to third-party definitions
+- Failure if existing apps break when upgrading the SDK version
+- Failure if race conditions in asynchronous responses cause the wrong view to render
 
 ## Approach
 
-I explicitly defined the boundaries of what could be rendered. I created a whitelist of 17 allowed block types, falling back to `UnsupportedComponent` for anything else. Only `html_frame`, which required high flexibility, was passed through an iframe paired with DOMPurify, and I restricted the externally exposed surface area using `public-api.ts`.
+I explicitly defined the boundaries of what could be rendered. A whitelist of 17 allowed block types was established, falling back to `UnsupportedComponent` for anything else. Only `html_frame`—which required higher flexibility—was allowed through an iframe with DOMPurify, and the external API surface itself was restricted using `public-api.ts`.
 
 ## Implementation
 
-- **Version Compatibility**: Added an ingestion layer to transform v1 responses into the v2 spec upon arrival, allowing the renderer to operate on a single unified type.
-- **Asynchronous Consistency**: Managed views using an app-level stack (hash map + ordered array) and discarded responses if their `view_id` was stale.
-- **Decoupling Marketplace and Rendering Engine**: Separated boundaries so changes in the Marketplace would not impact the rendering engine.
+- **Version Compatibility**: Introduced a transformation layer that converts v1 responses to the v2 specification upon receipt, allowing the renderer to handle only a single unified type.
+- **Asynchronous Consistency**: Managed views as app-level stacks (hash map + ordered array) and discarded responses if the `view_id` was stale.
+- **Decoupling Marketplace and Rendering Engine**: Separated boundaries so that changes in the Marketplace would not impact the rendering engine.
 
 ## Results
 
-Successfully built a structure where third-party apps run smoothly like native UIs inside the Swit client, while strictly keeping renderable scope controlled within our defined whitelist.
+Created a structure where third-party apps behave like native UIs inside the Swit client, while strictly keeping renderable components within our defined whitelist.
 
 ## Lessons Learned
 
-Defining "what to allow" via a whitelist makes security boundaries and specification documentation identical. Additionally, handling version compatibility at the entry point rather than inside the renderer keeps the codebase much simpler.
+Defining "what to allow" via a whitelist makes the security boundary and the spec documentation one and the same. Additionally, handling version compatibility at the entry point rather than inside the renderer keeps the code significantly simpler.

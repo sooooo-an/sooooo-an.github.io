@@ -1,0 +1,44 @@
+---
+title: Investigating the Root Cause of Double-Loaded iframe
+summary: >-
+  Finding the root cause of a widget double-loading issue occurring exclusively
+  on a client's page within the platform code
+role: Frontend Engineer (Root Cause Analysis & Report Writing)
+period: During Charlla Operation
+stack:
+  - iframe Embedding
+  - Cafe24
+  - JavaScript
+proves:
+  - Embed Debugging
+  - Platform Constraint Analysis
+  - Client Communication
+featured: false
+hidden: true
+order: 7
+sourceHash: 00fed75a5c2aa0e835af226e1dc22db8755661b4d3bce024a880f069b67de1ab
+---
+
+## Situation
+
+An issue was reported where the charlla.io widget was loading twice on a specific Cafe24 client page. It was a type of problem that could not be reproduced by looking at our own codebase alone.
+
+## Problem Definition
+
+Because our code runs on a third-party host page, we first had to determine whether "our code was at fault, or the host page was executing our code a second time."
+
+## Approach
+
+I traced the exact moment the widget script re-executed on the client page and checked what the host page was doing at that point in time.
+
+## Root Cause
+
+The Cafe24 platform's `CAFE24.FRONT_NEW_PRODUCT_LAZYLOAD.resetDetailContent()` was re-rendering the product detail content, causing our widget to be re-inserted along with it. It was a platform-level constraint rather than a bug in our code.
+
+## Result
+
+I authored and shared a report summarizing the root cause and reproduction conditions. Rather than a simple bug fix, this served as valuable input for product-level decision-making on how to shape our embedding strategy going forward.
+
+## What I Learned
+
+For embedded products, simply proving that "our code is correct" is not enough. You must design with an understanding of when the host platform might re-execute your code so that similar issues do not recur across other clients.
