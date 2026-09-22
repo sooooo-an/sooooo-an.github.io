@@ -88,6 +88,18 @@ GitHub 저장소 설정에서 **Settings → Pages → Build and deployment → 
 `.github/workflows/deploy.yml` 워크플로우가 실행되어 `npm run build` 결과물
 (`out/`)을 GitHub Pages에 자동 배포합니다.
 
+## Google Analytics (GA4)
+
+`src/lib/site.ts` 의 `analytics.gaMeasurementId` 에 측정 ID(`G-XXXXXXXXXX`)를 넣으면 GA4 스크립트가 주입된다. 빈 문자열이면 스크립트를 넣지 않는다.
+
+발급 방법:
+
+1. https://analytics.google.com 에서 속성(Property) 생성
+2. 데이터 스트림 → 웹 → URL `https://sooooo-an.github.io` 등록
+3. 생성된 측정 ID(`G-` 로 시작)를 `gaMeasurementId` 에 입력
+
+검색 유입 키워드를 보려면 Search Console(https://search.google.com/search-console)에 사이트를 등록하고 GA4 속성과 연동한다.
+
 ## 자동 번역 (한글 → 영어)
 
 `src/content/**/*.mdx` 에 새 글이나 새 프로젝트 케이스 스터디를 추가하면,

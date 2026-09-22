@@ -44,7 +44,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { umamiWebsiteId, umamiSrc } = siteConfig.analytics;
+  const { umamiWebsiteId, umamiSrc, gaMeasurementId } = siteConfig.analytics;
   return (
     <html lang="ko">
       <head>
@@ -60,6 +60,20 @@ export default function RootLayout({
             data-website-id={umamiWebsiteId}
             strategy="afterInteractive"
           />
+        ) : null}
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaMeasurementId}');`}
+            </Script>
+          </>
         ) : null}
       </head>
       <body>

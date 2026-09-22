@@ -15,6 +15,8 @@ export const siteConfig = {
   analytics: {
     umamiWebsiteId: '3869e0fd-094d-46e1-bf78-35f9660621b0',
     umamiSrc: 'https://cloud.umami.is/script.js',
+    // GA4 측정 ID (G-XXXXXXXXXX). 비워두면 GA 스크립트를 넣지 않는다.
+    gaMeasurementId: '',
   },
 } as const;
 
