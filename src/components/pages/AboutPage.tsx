@@ -11,6 +11,22 @@ export default function AboutPage({ locale = 'ko' }: { locale?: Locale }) {
         <h1 className="hero-name" style={{ fontSize: 32 }}>
           {dict.aboutPage.title}
         </h1>
+        {siteConfig.avatar ? (
+          <div className="about-profile">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="about-avatar"
+              src={siteConfig.avatar}
+              alt={siteConfig.name}
+              width={120}
+              height={120}
+            />
+            <div className="about-profile-meta">
+              <p className="about-profile-name">{siteConfig.name}</p>
+              <p className="about-profile-role">{siteConfig.role}</p>
+            </div>
+          </div>
+        ) : null}
       </section>
 
       <section className="section">

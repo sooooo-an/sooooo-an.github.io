@@ -4,6 +4,8 @@ export const siteConfig = {
   url: 'https://sooooo-an.github.io',
   description:
     '한 사람의 역량에 AI를 더해, 기획부터 개발과 수익화까지 직접 굴려보는 프론트엔드 개발자입니다.',
+  // About 페이지 프로필 사진 경로. 비워두면 사진 영역을 렌더링하지 않는다.
+  avatar: '',
   email: 'devsoo0527@gmail.com',
   github: 'https://github.com/sooooo-an',
   giscus: {
