@@ -29,13 +29,9 @@ interface Dictionary {
     productTitle: string;
     productBody: string;
     careerTitle: string;
-    resumeTitle: string;
-    resumeLink: string;
-    resumePdf: string;
     contactTitle: string;
     description: string;
   };
-  resumePage: { title: string; description: string; downloadPdf: string };
   projectDetail: {
       period: string;
       role: string;
@@ -102,16 +98,8 @@ export const dictionary: Record<Locale, Dictionary> = {
       productBody:
         '기획부터 개발, 배포, 지표 확인까지 혼자서도 굴릴 수 있는 제품을 만들고 싶습니다. AI를 도구로 써서 한 사람이 감당할 수 있는 범위를 넓히고, 그 결과가 실제로 돈을 버는 데까지 이어지는 것이 목표입니다.',
       careerTitle: '주요 경력',
-      resumeTitle: '이력서',
-      resumeLink: '이력서 페이지 보기',
-      resumePdf: 'PDF 다운로드',
       contactTitle: 'GitHub · 이메일',
       description: '안수경에 대한 소개입니다.',
-    },
-    resumePage: {
-      title: 'Resume',
-      description: '안수경의 경력 타임라인입니다.',
-      downloadPdf: '이력서 PDF 다운로드',
     },
     projectDetail: {
       period: '기간',
@@ -181,16 +169,8 @@ export const dictionary: Record<Locale, Dictionary> = {
       productBody:
         'I want to build products I can run on my own, from planning through shipping to reading the metrics. The goal is to use AI to widen the range one person can cover, and to take that all the way to actually making money.',
       careerTitle: 'Career',
-      resumeTitle: 'Resume',
-      resumeLink: 'View resume page',
-      resumePdf: 'Download PDF',
       contactTitle: 'GitHub · Email',
       description: 'An introduction to Sookyung Ahn.',
-    },
-    resumePage: {
-      title: 'Resume',
-      description: "Sookyung Ahn's career timeline.",
-      downloadPdf: 'Download Resume PDF',
     },
     projectDetail: {
       period: 'Period',

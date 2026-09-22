@@ -70,17 +70,6 @@ export default function AboutPage({ locale = 'ko' }: { locale?: Locale }) {
 
       <section className="section">
         <h2 className="section-label" style={{ marginBottom: 16 }}>
-          {dict.aboutPage.resumeTitle}
-        </h2>
-        <div className="hero-actions">
-          <a href="/resume.pdf" className="btn btn-outline" download>
-            {dict.aboutPage.resumePdf}
-          </a>
-        </div>
-      </section>
-
-      <section className="section">
-        <h2 className="section-label" style={{ marginBottom: 16 }}>
           {dict.aboutPage.contactTitle}
         </h2>
         <div className="contact-list">

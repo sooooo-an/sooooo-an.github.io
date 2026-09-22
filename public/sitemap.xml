@@ -25,12 +25,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/about/" />
   </url>
   <url>
-    <loc>https://sooooo-an.github.io/resume/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/resume/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/resume/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/resume/" />
-  </url>
-  <url>
     <loc>https://sooooo-an.github.io/projects/ai-voc-copilot/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/ai-voc-copilot/" />
@@ -65,6 +59,9 @@
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/troubleshooting-iframe-double-load/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/troubleshooting-iframe-double-load/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/troubleshooting-iframe-double-load/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/troubleshooting-iframe-double-load/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/troubleshooting-player-incident/</loc>
@@ -103,12 +100,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/about/" />
   </url>
   <url>
-    <loc>https://sooooo-an.github.io/en/resume/</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/resume/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/resume/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/resume/" />
-  </url>
-  <url>
     <loc>https://sooooo-an.github.io/en/projects/ai-voc-copilot/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/ai-voc-copilot/" />
@@ -137,6 +128,12 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/swit-developers/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/swit-developers/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/swit-developers/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/troubleshooting-iframe-double-load/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/troubleshooting-iframe-double-load/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/troubleshooting-iframe-double-load/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/troubleshooting-iframe-double-load/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/en/projects/troubleshooting-player-incident/</loc>

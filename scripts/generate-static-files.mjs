@@ -88,7 +88,7 @@ function generateRss(posts) {
  * 충돌하지 않도록 각 항목에 hasEn 을 미리 계산해서 넣는다.
  */
 function generateSitemap(koPosts, koProjects, enPosts, enProjects) {
-  const staticRoutes = ['', 'projects/', 'writing/', 'about/', 'resume/'];
+  const staticRoutes = ['', 'projects/', 'writing/', 'about/'];
   const enProjectSlugs = new Set(enProjects.map((p) => p.slug));
   const enPostSlugs = new Set(enPosts.map((p) => p.slug));
 
