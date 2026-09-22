@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     alternateLocale: 'en_US',
     type: 'website',
   },
+  verification: {
+    google: 'g1kpUbftsZC8u9z2wWISSJA66-7YRMsnEsDB9pJQPuY',
+  },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
