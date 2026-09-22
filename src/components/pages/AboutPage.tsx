@@ -1,5 +1,5 @@
 import { siteConfig } from '@/lib/site';
-import { careerTimeline, totalCareer } from '@/lib/career';
+import { careerTimeline, formatPeriod, getTotalCareer } from '@/lib/career';
 import { t, type Locale } from '@/lib/i18n/dictionary';
 
 export default function AboutPage({ locale = 'ko' }: { locale?: Locale }) {
@@ -52,19 +52,24 @@ export default function AboutPage({ locale = 'ko' }: { locale?: Locale }) {
           {dict.aboutPage.careerTitle}
         </h2>
         <p style={{ color: 'var(--color-meta)', marginBottom: 16, fontSize: 14 }}>
-          {totalCareer}
+          {getTotalCareer(locale)}
         </p>
         <ul className="timeline">
-          {careerTimeline.map((item) => (
-            <li key={`${item.org}-${item.period}`} className="timeline-item">
-              <p className="timeline-period">{item.period}</p>
-              <p className="timeline-org">
-                {item.org}
-                {item.team ? ` · ${item.team}` : ''}
-              </p>
-              {item.role ? <p className="timeline-role">{item.role}</p> : null}
-            </li>
-          ))}
+          {careerTimeline.map((item) => {
+            const org = locale === 'ko' ? item.org : item.orgEn;
+            const team = locale === 'ko' ? item.team : item.teamEn;
+            const role = locale === 'ko' ? item.role : item.roleEn;
+            return (
+              <li key={`${item.org}-${item.start}`} className="timeline-item">
+                <p className="timeline-period">{formatPeriod(item, locale)}</p>
+                <p className="timeline-org">
+                  {org}
+                  {team ? ` · ${team}` : ''}
+                </p>
+                {role ? <p className="timeline-role">{role}</p> : null}
+              </li>
+            );
+          })}
         </ul>
       </section>
 
