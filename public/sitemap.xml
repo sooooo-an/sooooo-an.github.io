@@ -38,15 +38,36 @@
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/charlla-ai-shorts/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/charlla-ai-shorts/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/charlla-ai-shorts/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/charlla-ai-shorts/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/charlla-widget/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/charlla-widget/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/charlla-widget/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/charlla-widget/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/shoppins/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/shoppins/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/shoppins/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/shoppins/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/projects/swit-developers/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/swit-developers/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/swit-developers/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/swit-developers/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/projects/troubleshooting-cloudfront-cache/</loc>
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/projects/troubleshooting-iframe-double-load/</loc>
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/projects/troubleshooting-player-incident/</loc>
   </url>
   <url>
     <loc>https://sooooo-an.github.io/writing/ai-era-developer-skills/</loc>
@@ -89,6 +110,30 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/ai-voc-copilot/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/ai-voc-copilot/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/charlla-ai-shorts/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/charlla-ai-shorts/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/charlla-ai-shorts/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/charlla-ai-shorts/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/charlla-widget/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/charlla-widget/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/charlla-widget/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/charlla-widget/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/shoppins/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/shoppins/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/shoppins/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/shoppins/" />
+  </url>
+  <url>
+    <loc>https://sooooo-an.github.io/en/projects/swit-developers/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sooooo-an.github.io/projects/swit-developers/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sooooo-an.github.io/en/projects/swit-developers/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sooooo-an.github.io/projects/swit-developers/" />
   </url>
   <url>
     <loc>https://sooooo-an.github.io/en/writing/ai-era-developer-skills/</loc>
