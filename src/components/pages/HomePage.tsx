@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/site';
 import { t, localePath, type Locale } from '@/lib/i18n/dictionary';
 import { personSchema } from '@/lib/jsonld';
 import SectionHeader from '@/components/SectionHeader';
-import ProjectRow from '@/components/ProjectRow';
+import ProjectCard from '@/components/ProjectCard';
 import PostRow from '@/components/PostRow';
 
 export default function HomePage({ locale = 'ko' }: { locale?: Locale }) {
@@ -52,9 +52,9 @@ export default function HomePage({ locale = 'ko' }: { locale?: Locale }) {
           moreHref={localePath(locale, '/projects/')}
           locale={locale}
         />
-        <ul className="numbered-list">
+        <ul className="project-grid">
           {featuredProjects.map((project) => (
-            <ProjectRow key={project.slug} project={project} locale={locale} />
+            <ProjectCard key={project.slug} project={project} locale={locale} />
           ))}
         </ul>
       </section>
