@@ -36,7 +36,13 @@ interface Dictionary {
     description: string;
   };
   resumePage: { title: string; description: string; downloadPdf: string };
-  projectDetail: { period: string; role: string; stack: string; proves: string };
+  projectDetail: {
+      period: string;
+      role: string;
+      stack: string;
+      proves: string;
+      troubleshooting: string;
+    };
   postDetail: {
     readingTime: (n: number) => string;
     prev: string;
@@ -107,7 +113,13 @@ export const dictionary: Record<Locale, Dictionary> = {
       description: '안수경의 경력 타임라인입니다.',
       downloadPdf: '이력서 PDF 다운로드',
     },
-    projectDetail: { period: '기간', role: '역할', stack: '스택', proves: '증명 역량' },
+    projectDetail: {
+      period: '기간',
+      role: '역할',
+      stack: '스택',
+      proves: '증명 역량',
+      troubleshooting: '트러블슈팅',
+    },
     postDetail: {
       readingTime: (n: number) => `${n}분 읽기`,
       prev: '이전 글',
@@ -180,7 +192,13 @@ export const dictionary: Record<Locale, Dictionary> = {
       description: "Sookyung Ahn's career timeline.",
       downloadPdf: 'Download Resume PDF',
     },
-    projectDetail: { period: 'Period', role: 'Role', stack: 'Stack', proves: 'Skills Proven' },
+    projectDetail: {
+      period: 'Period',
+      role: 'Role',
+      stack: 'Stack',
+      proves: 'Skills Proven',
+      troubleshooting: 'Troubleshooting',
+    },
     postDetail: {
       readingTime: (n: number) => `${n} min read`,
       prev: 'Previous',

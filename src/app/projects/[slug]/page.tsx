@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllProjects, getProjectBySlug } from '@/lib/content';
 import { renderMdx } from '@/lib/mdx';
@@ -49,6 +50,10 @@ export default async function ProjectDetailPage({
 
   const dict = t('ko');
   const content = await renderMdx(project.content);
+  const allProjects = getAllProjects('ko');
+  const related = project.troubleshooting
+    .map((s) => allProjects.find((p) => p.slug === s))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
   const schema = creativeWorkSchema({
     headline: project.title,
     description: project.summary,
@@ -82,6 +87,27 @@ export default async function ProjectDetailPage({
       <article className="prose" data-pagefind-body>
         {content}
       </article>
+      {related.length > 0 ? (
+        <section className="section">
+          <h2 className="section-label" style={{ marginBottom: 16 }}>
+            {dict.projectDetail.troubleshooting}
+          </h2>
+          <ul className="numbered-list">
+            {related.map((item) => (
+              <li key={item.slug} className="numbered-item">
+                <Link
+                  href={`/projects/${item.slug}/`}
+                  className="numbered-body"
+                  style={{ display: 'block' }}
+                >
+                  <p className="numbered-title">{item.title}</p>
+                  <p className="numbered-desc">{item.summary}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </div>
   );
 }

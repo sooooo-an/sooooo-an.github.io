@@ -1,4 +1,4 @@
-import { getAllProjects } from '@/lib/content';
+import { getListedProjects } from '@/lib/content';
 import { siteConfig } from '@/lib/site';
 import { t, localePath, type Locale } from '@/lib/i18n/dictionary';
 import { breadcrumbSchema } from '@/lib/jsonld';
@@ -6,7 +6,7 @@ import ProjectRow from '@/components/ProjectRow';
 
 export default function ProjectsPage({ locale = 'ko' }: { locale?: Locale }) {
   const dict = t(locale);
-  const projects = getAllProjects(locale);
+  const projects = getListedProjects(locale);
 
   const schema = breadcrumbSchema([
     { name: dict.nav.home, url: `${siteConfig.url}${localePath(locale, '/')}` },

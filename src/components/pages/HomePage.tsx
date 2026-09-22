@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllPosts, getAllProjects } from '@/lib/content';
+import { getAllPosts, getListedProjects } from '@/lib/content';
 import { siteConfig } from '@/lib/site';
 import { t, localePath, type Locale } from '@/lib/i18n/dictionary';
 import { personSchema } from '@/lib/jsonld';
@@ -9,7 +9,7 @@ import PostRow from '@/components/PostRow';
 
 export default function HomePage({ locale = 'ko' }: { locale?: Locale }) {
   const dict = t(locale);
-  const featuredProjects = getAllProjects(locale)
+  const featuredProjects = getListedProjects(locale)
     .filter((p) => p.featured)
     .slice(0, 3);
   const featuredPosts = getAllPosts(locale)
