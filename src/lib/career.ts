@@ -35,13 +35,13 @@ export const careerTimeline: CareerItem[] = [
   },
   {
     org: '세탁특공대',
-    orgEn: 'Laundrygo',
+    orgEn: 'WASHSWAT',
     start: '2019-12',
     end: '2020-04',
   },
   {
     org: '아이디어컴즈',
-    orgEn: 'Ideacomms',
+    orgEn: 'Ideacomes',
     start: '2018-08',
     end: '2019-06',
   },
