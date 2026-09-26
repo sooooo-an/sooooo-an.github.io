@@ -9,6 +9,7 @@ npm install
 npm run dev       # 로컬 개발 서버 (http://localhost:3000)
 npm run build     # 정적 빌드 (prebuild → next build → postbuild(pagefind) 순으로 실행됨)
 npm run start     # out/ 디렉터리를 정적으로 서빙 (serve 사용)
+npm run typecheck # 타입 검사 (tsc --noEmit)
 ```
 
 `npm run build` 는 다음 순서로 동작합니다.
@@ -60,16 +61,15 @@ frontmatter 필드:
 | `featured` | boolean  | 홈 화면 "대표 프로젝트" 노출 |
 | `order`    | number   | 목록 정렬 순서 (작을수록 위) |
 
-## 직접 채워야 할 값
+## 외부 서비스 설정
 
-- **Giscus**: `src/lib/site.ts` 의 `giscus.repo / repoId / category / categoryId` 값을
-  채워야 글 상세 페이지 하단에 댓글창이 표시됩니다. 비어 있으면 댓글 컴포넌트는
-  렌더링되지 않습니다. https://giscus.app 에서 레포에 맞는 값을 발급받으세요.
-- **Umami Analytics**: `src/lib/site.ts` 의 `analytics.umamiWebsiteId`,
-  `analytics.umamiSrc` 값을 채우면 `<head>`에 스크립트가 삽입됩니다.
-- **이력서 PDF**: `public/resume.pdf` 파일이 아직 없습니다. About/Resume 페이지의
-  다운로드 링크(`/resume.pdf`)는 미리 만들어져 있으니, 실제 이력서 PDF 파일을
-  `public/resume.pdf` 경로에 추가하면 됩니다.
+모두 `src/lib/site.ts` 에 설정되어 있습니다. 값을 비우면 해당 기능은 렌더링되지 않습니다.
+
+- **Giscus 댓글**: `giscus.repo / repoId / category / categoryId` (GitHub Discussions 기반).
+  값은 https://giscus.app 에서 발급합니다. 댓글이 `pathname` 으로 매핑되므로
+  한국어 글 URL을 바꾸면 기존 댓글이 끊깁니다.
+- **Umami Analytics**: `analytics.umamiWebsiteId`, `analytics.umamiSrc`
+- **Google Analytics (GA4)**: `analytics.gaMeasurementId` (아래 섹션 참고)
 
 ## OG 이미지 관련 참고
 

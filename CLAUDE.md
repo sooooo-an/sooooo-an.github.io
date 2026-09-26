@@ -1,6 +1,20 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 이 파일은 이 저장소에서 작업하는 Claude(또는 다른 AI 코딩 에이전트)를 위한 프로젝트 메모입니다.
+
+## 명령어
+
+```bash
+npm run dev          # 개발 서버 (localhost:3000)
+npm run build        # prebuild(sitemap/rss/robots) → next build → postbuild(pagefind)
+npm run start        # out/ 정적 서빙
+npm run typecheck    # 타입 검증 (tsc --noEmit)
+npm run translate    # 로컬 번역 (.env.local 의 GEMINI_API_KEY 필요)
+```
+
+- 테스트 프레임워크·린터 없음. 검증은 `npm run typecheck` + `npm run build` 로 한다.
 
 ## 프로젝트 개요
 
@@ -15,7 +29,7 @@ Pretendard 폰트, 번호 매김 리스트형 글/프로젝트 목록). 포인�
 ## 라우트 구조
 
 - 한국어(기본, prefix 없음): `/`, `/projects`, `/projects/[slug]`, `/writing`,
-  `/writing/[slug]`, `/about`, `/resume`
+  `/writing/[slug]`, `/about` (`/resume` 는 제거됨 — 경력은 About 페이지로 통합)
 - 영어(`/en` prefix): `src/app/en/` 아래 동일 구조 미러링
 - **한국어 URL 구조는 절대 바꾸지 말 것.** 이미 배포되어 Giscus 댓글이 `data-mapping="pathname"`
   으로 이 경로에 매핑되어 있음 (`src/lib/site.ts` 의 `giscus` 설정, `src/components/Giscus.tsx`).
@@ -31,8 +45,18 @@ Pretendard 폰트, 번호 매김 리스트형 글/프로젝트 목록). 포인�
   라벨 매핑은 `src/lib/categories.ts`, `src/lib/i18n/dictionary.ts` 참고.
 - 글 frontmatter: `title, date, description, category, tags[], featured, draft`
 - 프로젝트 frontmatter: `title, summary, role, period, stack[], proves[], featured, order`
+  (+ 선택: `cover`, `hidden` — 목록에서 숨김(`getListedProjects`), `troubleshooting[]`)
+- `draft: true` 글은 production 빌드(`NODE_ENV=production`)에서만 제외된다 — dev에서는 보인다.
 - 콘텐츠 로딩/파싱은 `src/lib/content.ts` (`getAllPosts`, `getPostBySlug`, `getAllProjects`,
   `getProjectBySlug`, `getAdjacentPosts`, 전부 `locale: 'ko' | 'en' = 'ko'` 파라미터 지원).
+- MDX 렌더: `src/lib/mdx.tsx` (`next-mdx-remote/rsc` + remark-gfm, rehype-slug/autolink,
+  Shiki 듀얼 테마, 커스텀 `rehype-mermaid`). TOC는 `content.ts` 에서 `github-slugger` 로
+  별도 추출하므로 heading id 규칙을 바꾸면 양쪽을 맞춰야 한다.
+- NEW/UPDATED 배지: `src/lib/git-dates.ts` 가 빌드 시 **한국어 원문 파일**의 `git log` 로
+  생성/수정일을 계산한다(`BADGE_WINDOW_DAYS`). 그래서 `deploy.yml` 은 `fetch-depth: 0` 이 필요하다.
+- 경력 타임라인: `src/lib/career.ts` (ko/en 필드 병기, 총 경력은 현재 날짜 기준 자동 계산,
+  `education` 항목은 합산 제외) → `AboutPage.tsx` 에서 렌더.
+- 기능별 원 설계 문서는 `.spec/*.md` 참고.
 
 ## 자동 번역 (Google Gemini API)
 

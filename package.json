@@ -9,7 +9,7 @@
     "build": "next build",
     "postbuild": "pagefind --site out --output-subdir _pagefind",
     "start": "npx serve out",
-    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "translate": "node scripts/translate.mjs"
   },
   "dependencies": {
