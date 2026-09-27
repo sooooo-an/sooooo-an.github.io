@@ -1,7 +1,7 @@
 ---
-title: Short-form Widgets and Embedded Players
+title: Short-form Widget & Embedded Player
 summary: >-
-  Redesigning the loading architecture and deployment pipeline for short-form
+  Redesigned the loading architecture and deployment pipeline for short-form
   video widgets embedded on e-commerce sites
 role: Frontend (FE 1 / BE 1 / PM 1 / PD 1)
 period: 2026.01 ~ 2026.04
@@ -14,41 +14,47 @@ stack:
 proves:
   - Embed Architecture
   - Performance Optimization
-  - Cross-Platform Verification
+  - Cross-platform Verification
   - Independent Deployment
 featured: true
 order: 1
-sourceHash: 36983a9d628e7657651c0e1bc22059ce794a311c37611215c8455a478c5ee818
+cover: /images/projects/charlla-widget.webp
+troubleshooting:
+  - troubleshooting-player-incident
+  - troubleshooting-iframe-double-load
+  - troubleshooting-cloudfront-cache
+sourceHash: 7838cb1736d5ee2e20ef4c6ee4bab9346a4e1b592c30ba4613233d95749da0a2
 ---
+
 ## Background
 
-Charana is a B2B SaaS that embeds short-form video widgets on e-commerce sites. Because the widget runs inside third-party websites, our code directly impacts the performance and behavior of the host page. As we offered a wider variety of widget types—such as multi-shop players, sliders, floating widgets, and hero banners—the scope of this impact continuously expanded.
+Charlla is a B2B SaaS that provides short-form video widgets embedded on e-commerce sites. Because the widget runs inside third-party websites, our code directly impacts the performance and behavior of the host page. As we expanded our offerings to include various widget types—such as multi-shop players, sliders, floating widgets, and hero banners—the scope of this impact continuously grew.
 
 ## Problem Statement
 
-The main problem was that when multiple widgets were placed on a single page, videos loaded simultaneously, causing the entire host page to lag. On top of that, the widget code was tied to the main app deployment, meaning that even a minor widget fix required going through the full application release cycle.
+The biggest issue was that when multiple widgets were placed on a single page, videos loaded simultaneously, making the entire host page heavy. On top of that, the widget code was tightly coupled with the main app deployment, meaning even a minor fix to a widget required going through the entire app release cycle.
 
-## Failure Criteria
+## Failure Conditions
 
-- Significantly degrading the loading performance of the host page
-- Inconsistent behavior across web, iOS, or Android WebViews
-- Having to redeploy the entire console/player app for a single line of widget fix
+- Noticeably degrading the loading performance of the host page.
+- Any behavioral inconsistency across web, iOS WebView, or Android WebView.
+- Having to redeploy the entire console/player just to update a single line of widget code.
 
 ## Approach
 
-I framed the loading problem as controlling "how many videos are actively loaded at the same time." By synchronizing active sources and freeing buffers for videos outside the viewport, I reduced the number of concurrently loaded videos by over 80%.
+I framed the loading problem as controlling "how many videos are active simultaneously." By synchronizing active sources and releasing buffers for off-screen videos, I reduced the number of concurrently loaded videos by over 80%.
 
-Communication between the widget and the host page was migrated to a `postMessage`-based mechanism. Since behavioral differences between web and iOS/Android WebViews could lead to actual production incidents, I verified cross-environment consistency using Playwright E2E tests throughout the process.
+For communication between the widget and the host page, I migrated to a `postMessage`-based architecture. Since behavioral differences between web and native WebViews (iOS/Android) could easily lead to production incidents, I systematically validated cross-environment behavior using Playwright E2E tests.
 
 ## Implementation
 
-- Separated widget scripts from the main app deployment to deploy them independently via CDN, introducing hash-based version management.
-- Converted the iframe-based console preview architecture into a `widget-core` package within a pnpm monorepo, allowing both the admin console and the player to share the exact same rendering logic.
+- Decoupled widget scripts from app deployment to deploy them independently to a CDN with hash-based version control.
+- Refactored the iframe-based console preview structure into a `widget-core` package within a pnpm monorepo, enabling both the console and the live player to share identical rendering logic.
 
 ## Results
 
-Concurrently loaded videos decreased by over 80%, and widgets can now be deployed independently without relying on main app releases. Furthermore, because console previews and actual player rendering stem from the exact same codebase, issues where "it works in the console but renders differently in production" were significantly reduced.
+The number of concurrently loaded videos decreased by over 80%, and widgets can now be deployed independently without relying on main app releases. Furthermore, sharing rendering logic between the console preview and the actual player significantly reduced bugs where "it works in the console but renders differently in production."
 
 ## Lessons Learned
 
-Code running on third-party pages must be evaluated from the perspective of the host page, not your own service standards. Also, assuming platform-specific differences "should work fine" almost always leads to production bugs; building verifiable automated tests from the start is ultimately the faster path.
+Code running on someone else's page must be evaluated against the host page's standards, not our own service's standards. Additionally, brushing off platform-specific edge cases with an assumption that "it should probably work" will inevitably blow up in production—building verifiable test environments from the start is always faster in the long run.
