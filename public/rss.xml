@@ -6,6 +6,13 @@
     <description>복잡한 제품의 실패 조건을 정의하고 안정적으로 운영되는 프론트엔드 시스템을 만듭니다.</description>
     <language>ko</language>
     <item>
+      <title>Claude가 망가졌다 — 바이브코딩의 후유증과 해결 방법</title>
+      <link>https://sooooo-an.github.io/writing/vibe-coding-aftermath/</link>
+      <guid>https://sooooo-an.github.io/writing/vibe-coding-aftermath/</guid>
+      <description>AI가 짠 코드가 점점 이상해지는 과정을 세션 기록으로 역추적하고, 프롬프트 방식을 바꾼 기록.</description>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>AI 이후의 개발 프로세스, 그리고 선택과 집중</title>
       <link>https://sooooo-an.github.io/writing/ai-era-developer-skills/</link>
       <guid>https://sooooo-an.github.io/writing/ai-era-developer-skills/</guid>
